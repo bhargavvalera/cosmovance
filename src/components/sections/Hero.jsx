@@ -96,13 +96,7 @@ export default function Hero() {
             animate="visible"
             className="flex flex-col gap-6 md:gap-8 max-w-2xl"
           >
-            {/* Badge */}
-            <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary-light text-xs sm:text-sm font-medium tracking-wide">
-                <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-                AI-Powered Software Engineering
-              </span>
-            </motion.div>
+            
 
             {/* Headline */}
             <motion.h1
