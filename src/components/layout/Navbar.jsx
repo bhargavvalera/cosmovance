@@ -45,30 +45,46 @@ export default function Navbar() {
         role="banner"
       >
         <nav
-          className="container-wide mx-auto flex items-center justify-between px-6 lg:px-10 h-18 md:h-20"
+  className="
+    container-wide
+    mx-auto
+    h-20
+    px-8
+    xl:px-12
+    grid
+    grid-cols-[220px_1fr_220px]
+    items-center
+"
           role="navigation"
           aria-label="Main navigation"
         >
           {/* Logo */}
           <a
             href="#home"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group justify self-start"
             aria-label={`${companyInfo.name} - Home`}
           >
             <motion.img
               src={logo}
               alt={`${companyInfo.name} logo`}
               className="w-9 h-9 md:w-10 md:h-10 rounded-lg"
-              whileHover={{ rotate: [0, -5, 5, 0] }}
+              whileHover={{ rotate: [0, 5, 5, 0] }}
               transition={{ duration: 0.5 }}
             />
             <span className="font-display font-bold text-lg md:text-xl tracking-tight text-white group-hover:text-primary-light transition-colors duration-300">
-              Cosmovance
+              Cosmovance Technologies
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-1" role="menubar">
+          <ul   className="
+    hidden
+    lg:flex
+    justify-center
+    items-center
+    gap-8
+    justify-self-center
+" role="menubar">
             {navLinks.map((link) => (
               <li key={link.id} role="none">
                 <a

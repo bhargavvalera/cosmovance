@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SceneCanvas from '../three/SceneCanvas';
 import { useMousePosition } from '../../hooks/useMousePosition';
 import { heroStats, companyInfo } from '../../data/navigation';
@@ -21,7 +21,7 @@ function AnimatedCounter({ value, suffix = '', duration = 2 }) {
     let start = 0;
     const end = value;
     const stepTime = Math.max(Math.floor((duration * 1000) / end), 20);
-    const increment = Math.ceil(end / (duration * 1000 / stepTime));
+    const increment = Math.ceil(end / ((duration * 1000) / stepTime));
 
     const timer = setInterval(() => {
       start += increment;
@@ -69,7 +69,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-bg-primary"
       aria-label="Hero section"
     >
       {/* Background Effects */}
@@ -87,24 +87,24 @@ export default function Hero() {
       </div>
 
       {/* Content Grid */}
-      <div className="container-wide mx-auto px-6 lg:px-10 pt-24 md:pt-32 pb-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[calc(100vh-8rem)]">
+      {/* Fixed padding top here (pt-32 lg:pt-40) to push content completely out from underneath the navbar */}
+      <div className="container-wide mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-32 lg:pt-40 pb-20 relative z-10 w-full">
+        {/* Changed grid-cols-2 to grid-cols-12 to match the col-span layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
           {/* Left: Text Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col gap-6 md:gap-8 max-w-2xl"
+            className="lg:col-span-7 flex flex-col gap-6 md:gap-8 max-w-3xl"
           >
-            
-
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-display font-bold leading-[1.05] tracking-tight"
+              className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.1] tracking-tight"
             >
-              Building{' '}
-              <GradientText>Intelligent</GradientText>
+              Building <GradientText>Intelligent</GradientText>
               <br />
               Digital Experiences.
             </motion.h1>
@@ -112,7 +112,7 @@ export default function Hero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-text-muted text-base sm:text-lg md:text-xl leading-relaxed max-w-xl"
+              className="text-base sm:text-lg lg:text-xl text-text-muted leading-relaxed max-w-2xl"
             >
               {companyInfo.description}
             </motion.p>
@@ -120,7 +120,7 @@ export default function Hero() {
             {/* CTAs */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 mt-2"
+              className="flex flex-wrap gap-4 pt-4"
             >
               <Button variant="primary" size="lg" href="#portfolio" icon={ArrowRight}>
                 Explore Our Work
@@ -151,7 +151,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full aspect-square max-w-[600px] mx-auto lg:mx-0 lg:ml-auto"
+            className="lg:col-span-5 relative w-full aspect-square max-w-[450px] lg:max-w-none mx-auto lg:ml-auto"
           >
             {/* Glow behind sphere */}
             <div
@@ -168,7 +168,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 hidden sm:flex"
         aria-hidden="true"
       >
         <span className="text-text-dim text-xs tracking-widest uppercase">Scroll</span>
