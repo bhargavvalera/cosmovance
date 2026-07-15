@@ -37,7 +37,7 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-10 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'bg-bg-primary/80 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_1px_30px_rgba(0,0,0,0.3)]'
             : 'bg-transparent'
@@ -61,13 +61,13 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#home"
-            className="flex items-center gap-3 group justify self-start"
+            className="flex items-center gap-3 group justify self-start select-none"
             aria-label={`${companyInfo.name} - Home`}
           >
             <motion.img
               src={logo}
               alt={`${companyInfo.name} logo`}
-              className="w-9 h-9 md:w-10 md:h-10 rounded-lg"
+              className="w-14 h-14 md:w-16 md:h-16 rounded-lg"
               whileHover={{ rotate: [0, 5, 5, 0] }}
               transition={{ duration: 0.5 }}
             />
