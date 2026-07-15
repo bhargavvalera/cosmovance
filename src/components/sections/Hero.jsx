@@ -75,7 +75,7 @@ export default function Hero() {
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {/* Primary radial glow */}
-        <div className="absolute top-[-20%] left-[20%] w-[60vw] h-[60vw] bg-primary/[0.07] rounded-full blur-[120px]" />
+        <div className="absolute top-[-20%] left-[40%] w-[60vw] h-[60vw] bg-primary/[0.07] rounded-full blur-[120px]" />
         {/* Accent glow */}
         <div className="absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] bg-accent/[0.05] rounded-full blur-[100px]" />
         {/* Secondary glow */}
@@ -83,14 +83,13 @@ export default function Hero() {
         {/* Grid */}
         <div className="absolute inset-0 bg-grid opacity-40" />
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-primary to-transparent" />
+        <div className="absolute bottom-0 left-10 right-0 h-32 bg-gradient-to-t from-bg-primary to-transparent" />
       </div>
 
       {/* Content Grid */}
       {/* Fixed padding top here (pt-32 lg:pt-40) to push content completely out from underneath the navbar */}
-      <div className="container-wide mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-32 lg:pt-40 pb-20 relative z-10 w-full">
-        {/* Changed grid-cols-2 to grid-cols-12 to match the col-span layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<div className="container-wide mx-auto px-6 md:px-12 lg:px-20 xl:px-32 relative z-10 w-full pt-32 lg:pt-40 pb-16">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left: Text Content */}
           <motion.div
