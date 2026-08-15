@@ -1,12 +1,25 @@
-import { useRef, useMemo } from 'react';
+import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
+// Generate particle positions ONCE at module load — outside component to satisfy React purity rules.
+const PARTICLE_COUNT = 800;
+const _positions = new Float32Array(PARTICLE_COUNT * 3);
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+  const radius = 1.8 + (Math.random() - 0.5) * 0.6;
+  _positions[i * 3]     = radius * Math.sin(phi) * Math.cos(theta);
+  _positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+  _positions[i * 3 + 2] = radius * Math.cos(phi);
+}
+const PARTICLE_DATA = { positions: _positions, count: PARTICLE_COUNT };
+
 /**
  * Interactive cosmic sphere with wireframe, particle cloud, and orbital rings.
- * Reacts to mouse position for subtle interactivity.
+ * Reads mouse position from a ref for zero-rerender interactivity.
  */
-export default function CosmicSphere({ mouse = { x: 0, y: 0 } }) {
+export default function CosmicSphere({ mouseRef }) {
   const groupRef = useRef();
   const wireframeRef = useRef();
   const particlesRef = useRef();
@@ -15,34 +28,18 @@ export default function CosmicSphere({ mouse = { x: 0, y: 0 } }) {
   const ring2Ref = useRef();
   const ring3Ref = useRef();
 
-  // Generate particle positions on sphere surface
-  const particleData = useMemo(() => {
-    const count = 1200;
-    const positions = new Float32Array(count * 3);
-    const sizes = new Float32Array(count);
-
-    for (let i = 0; i < count; i++) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      const radius = 1.8 + (Math.random() - 0.5) * 0.6;
-
-      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      positions[i * 3 + 2] = radius * Math.cos(phi);
-      sizes[i] = Math.random() * 2 + 0.5;
-    }
-
-    return { positions, sizes, count };
-  }, []);
+  // Use the module-level pre-computed particle data
+  const particleData = PARTICLE_DATA;
 
   // Animate per frame
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
+    const mouse = mouseRef?.current || { x: 0, y: 0 };
 
     if (groupRef.current) {
       // Slow base rotation
       groupRef.current.rotation.y = t * 0.08;
-      // Mouse-reactive tilt
+      // Mouse-reactive tilt (reads from ref — no re-renders)
       groupRef.current.rotation.x = THREE.MathUtils.lerp(
         groupRef.current.rotation.x,
         mouse.y * 0.15,
@@ -76,7 +73,7 @@ export default function CosmicSphere({ mouse = { x: 0, y: 0 } }) {
   });
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} scale={0.92}>
       {/* Inner glow sphere */}
       <mesh ref={innerGlowRef}>
         <sphereGeometry args={[1.3, 32, 32]} />
@@ -130,12 +127,6 @@ export default function CosmicSphere({ mouse = { x: 0, y: 0 } }) {
             array={particleData.positions}
             count={particleData.count}
             itemSize={3}
-          />
-          <bufferAttribute
-            attach="attributes-size"
-            array={particleData.sizes}
-            count={particleData.count}
-            itemSize={1}
           />
         </bufferGeometry>
         <pointsMaterial

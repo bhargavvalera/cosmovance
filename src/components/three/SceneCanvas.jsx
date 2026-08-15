@@ -5,11 +5,12 @@ import CosmicSphere from './CosmicSphere';
 
 /**
  * Three.js canvas wrapper with proper setup, lighting, and suspense fallback.
+ * Accepts mouseRef (a React ref) for zero-rerender mouse tracking.
  */
-export default function SceneCanvas({ mouse }) {
+export default function SceneCanvas({ mouseRef }) {
   return (
     <Canvas
-      camera={{ position: [0, 0, 6], fov: 45 }}
+      camera={{ position: [0, 0, 8.2], fov: 45 }}
       dpr={[1, 2]}
       gl={{
         antialias: true,
@@ -54,7 +55,7 @@ export default function SceneCanvas({ mouse }) {
           distance={10}
         />
 
-        <CosmicSphere mouse={mouse} />
+        <CosmicSphere mouseRef={mouseRef} />
         <Preload all />
       </Suspense>
     </Canvas>
