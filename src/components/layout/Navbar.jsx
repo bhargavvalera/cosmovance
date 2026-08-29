@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import { navLinks, companyInfo } from '../../data/navigation';
-import logo from '../../assets/cosmovance_logo.png';
+import logo from '../../assets/cosmovance_technologies_icon.png';
 
 const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
 
@@ -77,20 +77,24 @@ export default function Navbar() {
           onClick={(e) => handleNavClick(e, { href: '#home', isMailto: false })}
           className="flex items-center gap-3 group select-none"
         >
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/[0.08] border border-white/15 p-1 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:border-primary/40 group-hover:shadow-[0_0_20px_rgba(79,70,229,0.3)]">
-            <img
-              src={logo}
-              alt={companyInfo.name}
-              className="w-full h-full object-contain"
-            />
+          <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
+           <img
+  src={logo}
+  alt={companyInfo.name}
+  className="w-full h-full object-contain"
+  style={{ imageRendering: 'auto' }}
+  loading="eager"
+/>
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-purple-300 transition-colors">
-              Cosmovance
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-text-dim font-medium -mt-1 hidden sm:block">
-              Technologies
-            </span>
+          <div className="flex flex-col leading-none">
+  <span className="font-display font-black text-lg sm:text-xl tracking-wide bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent group-hover:from-purple-300 group-hover:via-pink-200 group-hover:to-purple-300 transition-all duration-300">
+    COSMOVANCE
+  </span>
+  <span className="font-display font-medium text-[10px] sm:text-xs tracking-[0.35em] text-purple-300/70 group-hover:text-purple-300 transition-colors duration-300 mt-1">
+    TECHNOLOGIES
+  </span>
+</div>
           </div>
         </a>
 
@@ -113,7 +117,8 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center">
           <a
             href={MAILTO_URL}
-            className="relative inline-flex items-center gap-2.5 px-5 py-2.5 text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
+              className="relative inline-flex items-center gap-2.5 pl-6 pr-6 py-2.5 min-w-[150px] justify-center text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
+
           >
             <Mail className="w-4 h-4 text-primary transition-transform duration-300 group-hover:scale-110" />
             <span className="relative z-10 text-slate-950 font-bold tracking-tight">Contact Us</span>
@@ -202,7 +207,7 @@ export default function Navbar() {
               <a
                 href={MAILTO_URL}
                 onClick={closeMobile}
-                className="mt-2 flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-base shadow-lg shadow-primary/30 hover:opacity-95 active:scale-98 transition-all"
+  className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-5 h-5" />
