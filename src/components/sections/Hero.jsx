@@ -99,12 +99,12 @@ export default function Hero() {
             className="lg:col-span-7 flex flex-col gap-6 md:gap-8"
           >
             {/* Pill Tagline */}
-            <motion.div variants={itemVariants} className="inline-flex">
+            {/* <motion.div variants={itemVariants} className="inline-flex">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-purple-300 text-xs font-medium tracking-wider uppercase backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 Intelligent IT Consultancy & Engineering
               </span>
-            </motion.div>
+            </motion.div> */}
 
             {/* Main Headline */}
             <motion.h1
