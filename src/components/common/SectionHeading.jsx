@@ -23,9 +23,9 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                     bg-primary/10 border border-primary/20
-                     text-primary-light text-xs font-medium tracking-wider uppercase mb-6"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full
+                     bg-primary/15 border border-primary/30
+                     text-primary-light text-sm sm:text-base font-semibold tracking-[0.18em] uppercase mb-6"
         >
           {badge}
         </motion.div>

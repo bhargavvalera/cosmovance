@@ -7,6 +7,9 @@ import {
   Rocket,
   LayoutGrid,
   Zap,
+  Linkedin,
+  Instagram,
+  Github,
   Shield,
   Users,
   Clock,
@@ -341,15 +344,15 @@ export const footerData = {
     { label: 'Contact', href: '#contact' },
   ],
   contact: {
-    email: 'hello@cosmovance.com',
-    phone: '+91 99999 99999',
+    email: 'founder@cosmovance.com',
+    phone: '+91 9624186304',
     location: 'India',
     icon: { email: Mail, phone: Phone, location: MapPin },
   },
   social: [
-    { label: 'LinkedIn', href: '#' },
-    { label: 'Twitter', href: '#' },
-    { label: 'GitHub', href: '#' },
+    { label: 'Linkedin', href: 'https://www.linkedin.com/in/bhargav-valera-780738229/',icon: Linkedin },
+    {  label: 'Instagram', href: '#',icon: Instagram },
+    {  label: 'GitHub', href: 'https://github.com/bhargavvalera', icon: Github },
   ],
 };
 
@@ -362,7 +365,7 @@ export const trustedByLogos = [
   'ScaleUp',
   'InnovateLabs',
   'CloudNine',
-  'DataForge',
+  'DataForge',   
   'AppCraft',
   'NextGen',
 ];
