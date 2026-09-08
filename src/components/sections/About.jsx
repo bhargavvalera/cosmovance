@@ -31,15 +31,18 @@ export default function About() {
           <p className="text-text-muted text-base md:text-lg leading-relaxed">
             From intelligent web applications to cross-platform mobile apps, every project we undertake is architected for scalability, high security, and exceptional user delight.
           </p>
-          <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] relative overflow-hidden group">
-            <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary to-accent" />
-            <h4 className="font-display font-semibold text-white text-base mb-1">
-              Our Core Philosophy
-            </h4>
-            <p className="text-sm text-slate-300 italic">
-              "Understand deeply, design intentionally, build meticulously, and ship continuously."
-            </p>
-          </div>
+          <div className="p-8 md:p-10 rounded-2xl bg-white/[0.03] border border-white/[0.08] relative overflow-hidden group">
+  <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary to-accent" />
+
+  <div className="pl-6">
+    <h4 className="font-display font-semibold text-white text-base mb-1">
+      Our Core Philosophy
+    </h4>
+    <p className="text-sm text-slate-300 italic">
+      "Understand deeply, design intentionally, build meticulously, and ship continuously."
+    </p>
+  </div>
+</div>
         </AnimatedElement>
 
         {/* Right — Feature cards grid */}

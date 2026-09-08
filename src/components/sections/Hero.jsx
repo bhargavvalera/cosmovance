@@ -38,7 +38,7 @@ function AnimatedCounter({ value, suffix = '', duration = 2 }) {
   }, [inView, value, duration]);
 
   return (
-    <span ref={ref} className="font-display font-bold text-3xl md:text-2xl text-white">
+    <span ref={ref} className="font-display font-bold text-2xl sm:text-3xl lg:text-2xl text-white">
       {count}{suffix}
     </span>
   );
@@ -72,7 +72,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-bg-primary pt-24 sm:pt-28 lg:pt-32 pb-16 lg:pb-24"
+      className="relative min-h-0 lg:min-h-screen flex items-start lg:items-center overflow-hidden bg-bg-primary pt-[7.5rem] sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-24"
       aria-label="Hero section"
     >
       {/* Background Effects */}
@@ -89,14 +89,14 @@ export default function Hero() {
 
       {/* Content Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center">
           
-          {/* Left: Text Content (7 cols on lg) */}
+          {/* Text Content — below sphere on mobile, left column on desktop */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-7 flex flex-col gap-6 md:gap-8"
+            className="order-2 lg:order-1 lg:col-span-7 flex flex-col gap-5 sm:gap-6 md:gap-8 lg:pl-14 xl:pl-16"
           >
             {/* Pill Tagline */}
             {/* <motion.div variants={itemVariants} className="inline-flex">
@@ -109,7 +109,7 @@ export default function Hero() {
             {/* Main Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] text-white leading-[1.08] tracking-tight"
+              className="font-display font-extrabold text-[1.75rem] leading-tight sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] text-white sm:leading-[1.1] tracking-tight"
             >
               Building{' '}
               <GradientText>Intelligent</GradientText>
@@ -152,12 +152,12 @@ export default function Hero() {
             {/* Responsive Stats Row */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-white/[0.08] mt-2"
+              className="grid grid-cols-3 gap-3 sm:gap-6 pt-6 sm:pt-8 border-t border-white/[0.08] mt-1 sm:mt-2"
             >
               {heroStats.map((stat) => (
-                <div key={stat.label} className="flex flex-col gap-1">
+                <div key={stat.label} className="flex flex-col gap-0.5 sm:gap-1 min-w-0">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  <span className="text-text-dim text-xs font-semibold tracking-wider uppercase">
+                  <span className="text-text-dim text-[10px] sm:text-xs font-semibold tracking-wide sm:tracking-wider uppercase leading-snug">
                     {stat.label}
                   </span>
                 </div>
@@ -165,16 +165,16 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: 3D Scene (5 cols on lg) */}
+          {/* 3D Scene — first on mobile, right column on desktop */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative w-full aspect-square max-w-[360px] sm:max-w-[420px] lg:max-w-none mx-auto lg:ml-auto block"
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="order-1 lg:order-2 lg:col-span-5 relative aspect-square w-[min(92vw,400px)] sm:w-[min(88vw,440px)] lg:w-full lg:max-w-none mx-auto lg:ml-auto lg:mr-0 justify-self-center shrink-0"
           >
             {/* Soft Ambient Radial Glow behind Sphere */}
             <div
-              className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 via-accent/15 to-transparent blur-[70px] scale-90 pointer-events-none"
+              className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 via-accent/15 to-transparent blur-[60px] sm:blur-[70px] scale-90 pointer-events-none"
               aria-hidden="true"
             />
             

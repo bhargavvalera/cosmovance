@@ -66,8 +66,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#030712]/85 backdrop-blur-xl border-b border-white/[0.08] py-3.5 shadow-2xl shadow-black/50'
-          : 'bg-transparent py-5'
+          ? 'bg-[#030712]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 lg:py-3.5 shadow-2xl shadow-black/50'
+          : 'bg-transparent py-3.5 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -77,7 +77,7 @@ export default function Navbar() {
           onClick={(e) => handleNavClick(e, { href: '#home', isMailto: false })}
           className="flex items-center gap-3 group select-none"
         >
-          <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
            <img
   src={logo}
   alt={companyInfo.name}
@@ -88,7 +88,7 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col">
           <div className="flex flex-col leading-none">
-  <span className="font-display font-black text-lg sm:text-xl tracking-wide bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent group-hover:from-purple-300 group-hover:via-pink-200 group-hover:to-purple-300 transition-all duration-300">
+  <span className="font-display font-black text-base sm:text-lg md:text-xl tracking-wide bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent group-hover:from-purple-300 group-hover:via-pink-200 group-hover:to-purple-300 transition-all duration-300">
     COSMOVANCE
   </span>
   <span className="font-display font-medium text-[10px] sm:text-xs tracking-[0.35em] text-purple-300/70 group-hover:text-purple-300 transition-colors duration-300 mt-1">
