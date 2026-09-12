@@ -9,7 +9,7 @@ import {
   Zap,
   Linkedin,
   Instagram,
-  Github,
+  GitFork,
   Shield,
   Users,
   Clock,
@@ -352,7 +352,7 @@ export const footerData = {
   social: [
     { label: 'Linkedin', href: 'https://www.linkedin.com/in/bhargav-valera-780738229/',icon: Linkedin },
     {  label: 'Instagram', href: '#',icon: Instagram },
-    {  label: 'GitHub', href: 'https://github.com/bhargavvalera', icon: Github },
+    {  label: 'GitHub', href: 'https://github.com/bhargavvalera', icon: GitFork },
   ],
 };
 
