@@ -1,4 +1,4 @@
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { footerData } from '../../data/siteData';
 import { companyInfo } from '../../data/navigation';
 import logo from '../../assets/cosmovance_logo.png';
@@ -8,6 +8,7 @@ import logo from '../../assets/cosmovance_logo.png';
  */
 export default function Footer() {
   const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
+  const TEL_URL = `tel:+919773034833`;
 
   const handleLinkClick = (e, href) => {
     if (href.startsWith('#')) {
@@ -30,13 +31,13 @@ export default function Footer() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {/* Column 1 — Company */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <a
               href="#home"
               onClick={(e) => handleLinkClick(e, '#home')}
-              className="flex items-center gap-3 mb-4 group"
+              className="flex items-center gap-3 mb-5 group"
             >
               <div className="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center border border-white/15 group-hover:border-primary/40 transition-colors">
                 <img
@@ -45,13 +46,33 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-lg text-white group-hover:text-purple-300 transition-colors">
-                Cosmovance
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="font-display font-bold text-base text-white group-hover:text-purple-300 transition-colors">
+                  COSMOVANCE
+                </span>
+                <span className="font-display font-medium text-[9px] tracking-[0.3em] text-purple-400/60 mt-1">
+                  TECHNOLOGIES
+                </span>
+              </div>
             </a>
-            <p className="text-text-muted text-sm leading-relaxed max-w-xs">
+            <p className="text-text-muted text-sm leading-relaxed max-w-xs mb-5">
               {companyInfo.tagline} We craft high-performance AI software, platforms, and digital products that set new standards.
             </p>
+            {/* Social links */}
+            <div className="flex gap-3">
+              {footerData.social.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-text-dim hover:text-white hover:bg-white/[0.10] hover:border-primary/30 transition-all text-xs font-semibold"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                >
+                  {social.label.charAt(0)}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Column 2 — Services */}
@@ -110,17 +131,28 @@ export default function Footer() {
                   href={MAILTO_URL}
                   className="flex items-center gap-3 text-text-muted text-sm hover:text-white transition-colors duration-200 group"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20">
+                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 shrink-0">
                     <Mail className="w-3.5 h-3.5 text-primary-light" />
                   </div>
                   {companyInfo.email}
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-text-muted text-sm">
-                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
+              <li>
+                <a
+                  href={TEL_URL}
+                  className="flex items-center gap-3 text-text-muted text-sm hover:text-white transition-colors duration-200 group"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 shrink-0">
+                    <Phone className="w-3.5 h-3.5 text-primary-light" />
+                  </div>
+                  +91 97730 34833
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-text-muted text-sm">
+                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="w-3.5 h-3.5 text-primary-light" />
                 </div>
-                India / Global Support
+                <span>Jamnagar, Gujarat,<br />India</span>
               </li>
             </ul>
           </div>
@@ -130,6 +162,9 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text-dim text-xs sm:text-sm text-center md:text-left">
             © {companyInfo.year} {companyInfo.name}. All rights reserved.
+          </p>
+          <p className="text-text-dim text-xs text-center">
+            Crafted with ♥ in Jamnagar, India
           </p>
           <div className="flex gap-6">
             {footerData.social.map((social) => (
@@ -149,4 +184,3 @@ export default function Footer() {
     </footer>
   );
 }
-

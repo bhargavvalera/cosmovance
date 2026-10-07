@@ -11,7 +11,7 @@ import { technologies } from '../../data/siteData';
  */
 export default function Technologies() {
   return (
-    <SectionWrapper id="technologies">
+    <SectionWrapper id="technologies" className="scroll-mt-20">
       {/* Header */}
       <AnimatedElement animation="fade-up">
         <SectionHeading

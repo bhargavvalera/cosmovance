@@ -10,7 +10,7 @@ import { portfolioProjects } from '../../data/siteData';
  */
 export default function Portfolio() {
   return (
-    <SectionWrapper id="portfolio">
+    <SectionWrapper id="portfolio" className="scroll-mt-20">
       <SectionHeading
         badge="Our Work"
         title={

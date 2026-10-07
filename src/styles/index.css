@@ -199,9 +199,10 @@ a {
   background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124, 58, 237, 0.1), transparent);
 }
 
-/* ---- Section Spacing ---- */
+/* ---- Section Spacing (vertical only — horizontal handled by container) ---- */
 .section-padding {
-  padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
 }
 
 /* ---- Container ---- */
@@ -212,7 +213,7 @@ a {
 }
 
 .container-narrow {
-  max-width: 1100px;
+  max-width: 860px;
   margin: 0 auto;
   width: 100%;
 }

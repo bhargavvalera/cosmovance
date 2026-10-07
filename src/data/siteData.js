@@ -341,9 +341,9 @@ export const footerData = {
     { label: 'Contact', href: '#contact' },
   ],
   contact: {
-    email: 'hello@cosmovance.com',
-    phone: '+91 99999 99999',
-    location: 'India',
+    email: 'founder@cosmovance.com',
+    phone: '+91 97730 34833',
+    location: 'Jamnagar, Gujarat, India',
     icon: { email: Mail, phone: Phone, location: MapPin },
   },
   social: [

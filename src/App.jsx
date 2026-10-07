@@ -4,8 +4,8 @@ import TrustedBy from './components/sections/TrustedBy';
 import Services from './components/sections/Services';
 import WhyChooseUs from './components/sections/WhyChooseUs';
 import Process from './components/sections/Process';
-import Portfolio from './components/sections/Portfolio';
 import Technologies from './components/sections/Technologies';
+import Portfolio from './components/sections/Portfolio';
 import About from './components/sections/About';
 import Testimonials from './components/sections/Testimonials';
 import FAQ from './components/sections/FAQ';
@@ -14,7 +14,7 @@ import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#030712] text-white selection:bg-primary/30 selection:text-white noise overflow-x-hidden">
+    <div className="relative min-h-screen bg-bg-primary noise">
       <Navbar />
       <main>
         <Hero />
@@ -22,8 +22,8 @@ function App() {
         <Services />
         <WhyChooseUs />
         <Process />
-        <Portfolio />
         <Technologies />
+        <Portfolio />
         <About />
         <Testimonials />
         <FAQ />
@@ -35,4 +35,3 @@ function App() {
 }
 
 export default App;
-

@@ -6,18 +6,26 @@ import CosmicSphere from './CosmicSphere';
 /**
  * Three.js canvas wrapper with proper setup, lighting, and suspense fallback.
  * Accepts mouseRef (a React ref) for zero-rerender mouse tracking.
+ *
+ * Performance: device pixel ratio is capped at 1.5 to avoid GPU overload on
+ * high-dpi mobile devices. On very low-end devices (<380px), the canvas still
+ * renders but at the minimum 1× ratio.
  */
 export default function SceneCanvas({ mouseRef }) {
+  // Clamp dpr: use 1 on mobile screens, up to 1.5 on retina — never 2×
+  // The Canvas `dpr` prop accepts [min, max]; the browser picks within range.
   return (
     <Canvas
       camera={{ position: [0, 0, 8.2], fov: 45 }}
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       gl={{
         antialias: true,
         alpha: true,
         powerPreference: 'high-performance',
       }}
       style={{ background: 'transparent' }}
+      frameloop="always"
+      performance={{ min: 0.5 }}
     >
       <Suspense fallback={null}>
         {/* Ambient fill light */}

@@ -8,4 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    // Suppress the expected Three.js bundle size warning
+    chunkSizeWarningLimit: 2000,
+  },
 })

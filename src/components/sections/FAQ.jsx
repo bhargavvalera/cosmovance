@@ -18,7 +18,7 @@ export default function FAQ() {
   };
 
   return (
-    <SectionWrapper id="faq">
+    <SectionWrapper id="faq" className="scroll-mt-20">
       <SectionHeading
         badge="FAQ"
         title={

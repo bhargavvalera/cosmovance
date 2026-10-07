@@ -10,7 +10,7 @@ import { whyChooseUs } from '../../data/siteData';
  */
 export default function WhyChooseUs() {
   return (
-    <SectionWrapper id="why-us">
+    <SectionWrapper id="why-us" className="scroll-mt-20">
       <SectionHeading
         badge="Why Choose Us"
         title={
