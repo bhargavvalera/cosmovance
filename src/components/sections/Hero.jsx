@@ -106,6 +106,15 @@ export default function Hero() {
               </span>
             </motion.div> */}
 
+            {/* Availability / positioning badge */}
+            <motion.div variants={itemVariants} className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+              </span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-600">Intelligent IT Consultancy & Engineering</span>
+            </motion.div>
+
             {/* Main Headline */}
             <motion.h1
               variants={itemVariants}
@@ -181,6 +190,22 @@ export default function Hero() {
             {/* 3D R3F Sphere Canvas */}
             <div className="w-full h-full relative z-10">
               <SceneCanvas mouseRef={mouseRef} />
+              <motion.div
+                animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                className="pointer-events-none absolute right-1 top-[16%] rounded-2xl border border-blue-100 bg-white/85 px-4 py-3 shadow-xl shadow-blue-500/10 backdrop-blur"
+              >
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Build</span>
+                <span className="font-display text-sm font-bold text-blue-600">Smart Products</span>
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 10, 0], rotate: [0, -3, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: .4 }}
+                className="pointer-events-none absolute bottom-[14%] left-0 rounded-2xl border border-violet-100 bg-white/85 px-4 py-3 shadow-xl shadow-violet-500/10 backdrop-blur"
+              >
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Create</span>
+                <span className="font-display text-sm font-bold text-violet-600">Digital Impact</span>
+              </motion.div>
             </div>
           </motion.div>
 

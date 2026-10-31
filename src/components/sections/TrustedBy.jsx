@@ -1,32 +1,38 @@
-import AnimatedElement from '../common/AnimatedElement';
+import { motion } from 'framer-motion';
 import { trustedByLogos } from '../../data/siteData';
 
 /**
- * Trusted By section — infinite marquee of client company logos.
- * Provides social proof immediately after the hero.
+ * Compact, high-contrast trust strip.
+ * The logo names are editable placeholders from siteData.js.
  */
 export default function TrustedBy() {
+  const logos = [...trustedByLogos, ...trustedByLogos];
+
   return (
-    <section className="relative overflow-hidden py-16 md:py-20 border-y border-white/[0.04]">
-      <div className="container-wide mx-auto px-6 md:px-8">
-        {/* Label */}
-        <AnimatedElement animation="fade" className="text-center mb-10">
-          <p className="text-text-dim text-sm font-medium tracking-widest uppercase">
-            Trusted by innovative companies
-          </p>
-        </AnimatedElement>
+    <section
+      aria-label="Trusted by innovative companies"
+      className="trusted-strip relative overflow-hidden border-y border-slate-200/80 bg-white/75 py-9 sm:py-11"
+    >
+      <div className="container-wide mx-auto px-5 sm:px-8">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="mb-7 text-center text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-blue-600"
+        >
+          Trusted by innovative companies
+        </motion.p>
       </div>
 
-      {/* Marquee */}
-      <div className="overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {/* Duplicate logos for seamless loop */}
-          {[...trustedByLogos, ...trustedByLogos].map((name, i) => (
+      <div className="trusted-marquee-wrap relative">
+        <div className="trusted-marquee flex w-max items-center">
+          {logos.map((name, index) => (
             <div
-              key={`${name}-${i}`}
-              className="inline-flex items-center justify-center px-10 md:px-14"
+              key={`${name}-${index}`}
+              className="trusted-logo-item flex items-center justify-center px-7 sm:px-10"
             >
-              <span className="font-display font-semibold text-lg md:text-xl text-white/20 hover:text-white/40 transition-colors duration-300 select-none whitespace-nowrap">
+              <span className="whitespace-nowrap font-display text-base sm:text-lg font-bold tracking-tight text-slate-500 transition-colors duration-300 hover:text-blue-600">
                 {name}
               </span>
             </div>
