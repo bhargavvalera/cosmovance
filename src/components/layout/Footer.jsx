@@ -45,7 +45,7 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-lg text-white group-hover:text-accent-light transition-colors">
+              <span className="font-display font-bold text-lg text-white group-hover:text-[#A78BFA] transition-colors">
                 Cosmovance
               </span>
             </a>
@@ -56,7 +56,7 @@ export default function Footer() {
 
           {/* Column 2 — Services */}
           <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-accent-light">
+            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-[#A78BFA]">
               Services
             </h4>
             <ul className="space-y-3">
@@ -72,7 +72,7 @@ export default function Footer() {
 
           {/* Column 3 — Quick Links */}
           <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-accent-light">
+            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-[#A78BFA]">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Column 4 — Contact */}
           <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-accent-light">
+            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-[#A78BFA]">
               Contact Us
             </h4>
             <ul className="space-y-4">

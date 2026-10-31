@@ -38,7 +38,7 @@ export default function About() {
     <h4 className="font-display font-semibold text-white text-base mb-1">
       Our Core Philosophy
     </h4>
-    <p className="text-sm text-slate-300 italic">
+    <p className="text-sm text-[#64748B] italic">
       "Understand deeply, design intentionally, build meticulously, and ship continuously."
     </p>
   </div>

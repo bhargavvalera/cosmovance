@@ -77,7 +77,7 @@ export default function Navbar() {
           onClick={(e) => handleNavClick(e, { href: '#home', isMailto: false })}
           className="flex items-center gap-3 group select-none"
         >
-          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(167,139,250,0.6)]">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
            <img
   src={logo}
   alt={companyInfo.name}
@@ -88,10 +88,10 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col">
           <div className="flex flex-col leading-none">
-  <span className="font-display font-black text-base sm:text-lg md:text-xl tracking-wide bg-gradient-to-r from-white via-sky-300 to-white bg-clip-text text-transparent group-hover:from-sky-300 group-hover:via-violet-300 group-hover:to-violet-300 transition-all duration-300">
+  <span className="font-display font-black text-base sm:text-lg md:text-xl tracking-wide bg-gradient-to-r from-white via-[#FBCFE8] to-white bg-clip-text text-transparent group-hover:from-[#A78BFA] group-hover:via-pink-200 group-hover:to-[#A78BFA] transition-all duration-300">
     COSMOVANCE
   </span>
-  <span className="font-display font-medium text-[10px] sm:text-xs tracking-[0.35em] text-accent-light/70 group-hover:text-accent-light transition-colors duration-300 mt-1">
+  <span className="font-display font-medium text-[10px] sm:text-xs tracking-[0.35em] text-[#A78BFA]/70 group-hover:text-[#A78BFA] transition-colors duration-300 mt-1">
     TECHNOLOGIES
   </span>
 </div>
@@ -105,7 +105,7 @@ export default function Navbar() {
               key={link.id}
               href={link.href}
               onClick={(e) => handleNavClick(e, link)}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 relative py-1 group"
+              className="text-sm font-medium text-[#64748B] hover:text-white transition-colors duration-200 relative py-1 group"
             >
               {link.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
@@ -117,19 +117,19 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center">
           <a
             href={MAILTO_URL}
-              className="relative inline-flex items-center gap-2.5 pl-6 pr-6 py-2.5 min-w-[150px] justify-center text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] group overflow-hidden"
+              className="relative inline-flex items-center gap-2.5 pl-6 pr-6 py-2.5 min-w-[150px] justify-center text-sm font-semibold text-[#0B0F24] bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
 
           >
             <Mail className="w-4 h-4 text-primary transition-transform duration-300 group-hover:scale-110" />
-            <span className="relative z-10 text-slate-950 font-bold tracking-tight">Contact Us</span>
-            <ArrowRight className="w-4 h-4 text-slate-950 transition-transform duration-300 group-hover:translate-x-1" />
+            <span className="relative z-10 text-[#0B0F24] font-bold tracking-tight">Contact Us</span>
+            <ArrowRight className="w-4 h-4 text-[#0B0F24] transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
 
         {/* Mobile Hamburger Toggle Button */}
         <button
           type="button"
-          className="lg:hidden p-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-slate-200 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+          className="lg:hidden p-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-[#E2E8F0] hover:text-white hover:bg-white/10 active:scale-95 transition-all"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
@@ -158,7 +158,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#111A35] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
+              className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
@@ -174,7 +174,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={closeMobile}
-                  className="p-2 rounded-lg bg-white/10 text-slate-300 hover:text-white transition-colors"
+                  className="p-2 rounded-lg bg-white/10 text-[#64748B] hover:text-white transition-colors"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -191,13 +191,13 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-slate-200 hover:text-white font-medium text-base transition-all border border-white/[0.04]"
+                    className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-[#E2E8F0] hover:text-white font-medium text-base transition-all border border-white/[0.04]"
                   >
                     <span>{link.label}</span>
                     {link.isMailto ? (
                       <Mail className="w-4 h-4 text-accent" />
                     ) : (
-                      <ArrowRight className="w-4 h-4 text-slate-500" />
+                      <ArrowRight className="w-4 h-4 text-[#64748B]" />
                     )}
                   </motion.a>
                 ))}
@@ -207,7 +207,7 @@ export default function Navbar() {
               <a
                 href={MAILTO_URL}
                 onClick={closeMobile}
-  className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] group overflow-hidden"
+  className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-[#0B0F24] bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-5 h-5" />

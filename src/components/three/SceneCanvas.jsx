@@ -21,7 +21,7 @@ export default function SceneCanvas({ mouseRef }) {
     >
       <Suspense fallback={null}>
         {/* Ambient fill light */}
-        <ambientLight intensity={0.3} color="#94A3B8" />
+        <ambientLight intensity={0.3} color="#64748B" />
 
         {/* Main key light - primary color */}
         <pointLight

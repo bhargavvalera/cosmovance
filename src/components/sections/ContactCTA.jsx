@@ -21,7 +21,7 @@ export default function ContactCTA() {
       <div className="container-narrow mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10">
         {/* Badge */}
         <AnimatedElement animation="fade-up">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-accent-light text-xs font-medium tracking-wider uppercase mb-6 backdrop-blur-md">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[#A78BFA] text-xs font-medium tracking-wider uppercase mb-6 backdrop-blur-md">
             Get in Touch
           </span>
         </AnimatedElement>
@@ -69,14 +69,14 @@ export default function ContactCTA() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-12 pt-6 border-t border-white/[0.08]">
             <a
               href={MAILTO_URL}
-              className="inline-flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-300 group"
+              className="inline-flex items-center gap-3 text-[#64748B] hover:text-white transition-colors duration-300 group"
             >
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20">
                 <Mail className="w-4 h-4 text-primary-light" />
               </div>
               <span className="text-sm font-medium">{companyInfo.email}</span>
             </a>
-            <div className="inline-flex items-center gap-3 text-slate-300">
+            <div className="inline-flex items-center gap-3 text-[#64748B]">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                 <MapPin className="w-4 h-4 text-primary-light" />
               </div>

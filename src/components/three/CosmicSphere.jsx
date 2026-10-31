@@ -89,7 +89,7 @@ export default function CosmicSphere({ mouseRef }) {
       <mesh>
         <sphereGeometry args={[1.2, 64, 64]} />
         <meshStandardMaterial
-          color="#111A35"
+          color="#1E1B4B"
           metalness={0.9}
           roughness={0.3}
           emissive="#3B82F6"
