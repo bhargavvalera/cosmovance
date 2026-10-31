@@ -2,11 +2,13 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import { navLinks, companyInfo } from '../../data/navigation';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/cosmovance_technologies_icon.png';
 
 const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -53,13 +55,7 @@ export default function Navbar() {
 
     e.preventDefault();
     if (mobileOpen) closeMobile();
-
-    const targetElement = document.querySelector(link.href);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    } else if (link.href === '#home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    navigate(link.href);
   };
 
   return (
@@ -73,8 +69,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a
-          href="#home"
-          onClick={(e) => handleNavClick(e, { href: '#home', isMailto: false })}
+          href="/"
+          onClick={(e) => handleNavClick(e, { href: '/', isMailto: false })}
           className="flex items-center gap-3 group select-none"
         >
           <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">

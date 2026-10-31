@@ -1,23 +1,21 @@
 import { Mail, MapPin } from 'lucide-react';
 import { footerData } from '../../data/siteData';
 import { companyInfo } from '../../data/navigation';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/cosmovance_logo.png';
 
 /**
  * Footer — 4-column layout with company info, services, links, and contact.
  */
 export default function Footer() {
+  const navigate = useNavigate();
   const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
 
   const handleLinkClick = (e, href) => {
-    if (href.startsWith('#')) {
+    if (href.startsWith('/')) {
       e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      } else if (href === '#home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
   };
 
@@ -34,8 +32,8 @@ export default function Footer() {
           {/* Column 1 — Company */}
           <div>
             <a
-              href="#home"
-              onClick={(e) => handleLinkClick(e, '#home')}
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/')}
               className="flex items-center gap-3 mb-4 group"
             >
               <div className="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center border border-white/15 group-hover:border-primary/40 transition-colors">

@@ -334,11 +334,11 @@ export const faqs = [
 export const footerData = {
   services: ['Custom Software', 'AI Solutions', 'Flutter Apps', 'React Development', 'UI/UX Design', 'SaaS MVP'],
   quickLinks: [
-    { label: 'Home', href: '#home' },
-    { label: 'Services', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Portfolio', href: '/portfolio' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ],
   contact: {
     email: 'founder@cosmovance.com',

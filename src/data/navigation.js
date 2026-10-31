@@ -1,13 +1,13 @@
 export const navLinks = [
-  { id: 'home', label: 'Home', href: '#home', isMailto: false },
-  { id: 'services', label: 'Services', href: '#services', isMailto: false },
-  { id: 'process', label: 'Process', href: '#process', isMailto: false },
-  { id: 'about', label: 'About', href: '#about', isMailto: false },
+  { id: 'home', label: 'Home', href: '/', isMailto: false },
+  { id: 'services', label: 'Services', href: '/services', isMailto: false },
+  { id: 'process', label: 'Process', href: '/process', isMailto: false },
+  { id: 'about', label: 'About', href: '/about', isMailto: false },
   {
     id: 'contact',
     label: 'Contact',
-    href: 'mailto:founder@cosmovance.com?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies',
-    isMailto: true,
+    href: '/contact',
+    isMailto: false,
   },
 ];
 
