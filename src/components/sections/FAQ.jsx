@@ -7,9 +7,6 @@ import SectionHeading from '../common/SectionHeading';
 import GradientText from '../common/GradientText';
 import { faqs } from '../../data/siteData';
 
-/**
- * FAQ section — accordion-style questions with animated expand/collapse.
- */
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -30,28 +27,28 @@ export default function FAQ() {
       />
 
       <AnimatedElement animation="fade-up">
-        <div className="container-narrow mx-auto">
+        <div className="max-w-4xl mx-auto space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div key={index}>
+              <div
+                key={index}
+                className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+              >
                 <button
                   type="button"
                   onClick={() => toggle(index)}
-                  className="w-full flex justify-between items-center py-6 border-b border-white/[0.06] text-left cursor-pointer"
+                  className="w-full flex items-center justify-between gap-5 px-6 py-5 text-left"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <span
-                    className={`font-display font-medium text-base md:text-lg pr-4 transition-colors duration-300 ${
-                      isOpen ? 'text-white' : 'text-white/80'
-                    }`}
-                  >
+                  <span className="text-[#1E293B] font-semibold text-base md:text-lg">
                     {faq.question}
                   </span>
+
                   <ChevronDown
-                    className={`w-5 h-5 text-text-muted shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 shrink-0 text-[#3B82F6] transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -65,10 +62,10 @@ export default function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="text-text-muted text-sm md:text-base leading-relaxed pb-6 max-w-3xl">
+                      <p className="px-6 pb-6 text-[#64748B] text-sm md:text-base leading-7">
                         {faq.answer}
                       </p>
                     </motion.div>
