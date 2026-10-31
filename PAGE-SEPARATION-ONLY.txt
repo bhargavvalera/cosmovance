@@ -1,0 +1,31 @@
+COSMOVANCE — PAGE SEPARATION ONLY
+
+This ZIP is based on the uploaded cosmovance-main-ai(3).zip.
+
+Changes made:
+- Added separate routes: /, /services, /process, /about, /contact.
+- Added /portfolio for the existing Portfolio footer quick link.
+- Updated the existing Navbar and Footer links to navigate between routes.
+- Moved existing section components into page components without redesigning them.
+
+Intentionally unchanged:
+- src/styles/index.css (all CSS)
+- Existing section component styling and markup (except the two existing CTA href targets that now route to /services)
+- Colors, fonts, images, logo assets, animations, package.json and package-lock.json
+
+Page contents:
+- Home: Hero, Trusted By, Why Choose Us, Portfolio, Technologies, Testimonials
+- Services: Services
+- Process: Process
+- About: About
+- Contact: FAQ, Contact CTA
+- Portfolio: Portfolio, Technologies
+
+Apply:
+1. Back up your current project.
+2. Extract this ZIP.
+3. Copy the extracted src folder into your existing project and replace files.
+4. Keep your existing .git and node_modules folders.
+5. Run `npm run dev` from the project root.
+
+Note: The source and route mappings were checked. A local browser build/visual test has not been run in this environment.

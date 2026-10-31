@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import { navLinks, companyInfo } from '../../data/navigation';
-import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/cosmovance_technologies_icon.png';
 
 const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;

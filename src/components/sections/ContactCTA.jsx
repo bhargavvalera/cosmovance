@@ -56,7 +56,7 @@ export default function ContactCTA() {
             <Button
               variant="outline"
               size="lg"
-              href="#services"
+              href="/services"
               className="w-full sm:w-auto"
             >
               Explore Offerings

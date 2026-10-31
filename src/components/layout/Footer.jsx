@@ -1,7 +1,7 @@
 import { Mail, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { footerData } from '../../data/siteData';
 import { companyInfo } from '../../data/navigation';
-import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/cosmovance_logo.png';
 
 /**
