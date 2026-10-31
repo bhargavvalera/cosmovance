@@ -9,6 +9,7 @@ import ProcessPage from './pages/ProcessPage';
 import AboutPage from './pages/AboutPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
 
 function AppLayout() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function AppLayout() {
           <Routes location={location}>
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
             <Route path="/process" element={<ProcessPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/about" element={<AboutPage />} />

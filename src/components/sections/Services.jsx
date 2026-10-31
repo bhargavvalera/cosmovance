@@ -4,6 +4,8 @@ import SectionHeading from '../common/SectionHeading';
 import GlassCard from '../common/GlassCard';
 import GradientText from '../common/GradientText';
 import { services } from '../../data/siteData';
+import { Link } from 'react-router-dom';
+import { serviceDetails } from '../../data/serviceDetails';
 
 /**
  * Services section — showcases core service offerings in a responsive grid.
@@ -46,10 +48,14 @@ export default function Services() {
                   {service.description}
                 </p>
               </div>
-              <div className="mt-8 pt-5 border-t border-white/[0.05] flex items-center justify-between text-sm font-semibold text-[#A78BFA] group-hover:text-[#A78BFA]">
+              <Link
+                to={`/services/${serviceDetails.find((item) => item.title === service.title)?.slug || ''}`}
+                aria-label={`Explore ${service.title}`}
+                className="mt-8 pt-5 border-t border-white/[0.05] flex items-center justify-between text-sm font-semibold text-[#A78BFA] hover:text-[#3B82F6] transition-colors"
+              >
                 <span>Explore offering</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
             </GlassCard>
           </AnimatedElement>
         ))}

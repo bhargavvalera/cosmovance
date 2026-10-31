@@ -1,14 +1,13 @@
-import { Mail, MapPin } from 'lucide-react';
+
+import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { footerData } from '../../data/siteData';
 import { companyInfo } from '../../data/navigation';
 import logo from '../../assets/cosmovance_logo.png';
 
-/**
- * Footer — 4-column layout with company info, services, links, and contact.
- */
 export default function Footer() {
   const navigate = useNavigate();
+
   const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
 
   const handleLinkClick = (e, href) => {
@@ -19,132 +18,169 @@ export default function Footer() {
     }
   };
 
+  const headingClass =
+    "mb-6 min-h-[20px] text-xs font-bold uppercase tracking-[0.14em] leading-5 text-[#A78BFA]";
+
+  const listClass = "space-y-4";
+
   return (
-    <footer className="relative border-t border-white/[0.08] bg-[#0B0F24]">
-      {/* Top gradient accent line */}
+    <footer className="relative overflow-hidden bg-[#0B0F24] text-white border-t border-white/10">
+
+      {/* Background Glow */}
       <div
-        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
-        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(circle at 85% 15%, rgba(59,130,246,0.16), transparent 35%), radial-gradient(circle at 10% 100%, rgba(167,139,250,0.10), transparent 35%)'
+        }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
-          {/* Column 1 — Company */}
-          <div>
+      {/* Top Accent */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#60A5FA] to-transparent" />
+
+      <div className="relative w-full max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10 py-14 md:py-16">
+
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.85fr_1.2fr] gap-x-10 xl:gap-x-14 gap-y-12 items-start">
+
+          {/* Company Information */}
+          <div className="w-full max-w-sm">
+
             <a
               href="/"
               onClick={(e) => handleLinkClick(e, '/')}
-              className="flex items-center gap-3 mb-4 group"
+              className="inline-flex items-center gap-3 mb-5 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center border border-white/15 group-hover:border-primary/40 transition-colors">
+              <div className="w-12 h-12 shrink-0 p-1.5 rounded-xl bg-white border border-white/20 flex items-center justify-center">
                 <img
                   src={logo}
                   alt={`${companyInfo.name} logo`}
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-lg text-white group-hover:text-[#A78BFA] transition-colors">
+
+              <span className="font-display font-bold text-xl text-white group-hover:text-[#A78BFA] transition-colors">
                 Cosmovance
               </span>
             </a>
-            <p className="text-text-muted text-sm leading-relaxed max-w-xs">
-              {companyInfo.tagline} We craft high-performance AI software, platforms, and digital products that set new standards.
+
+            <p className="text-slate-300 text-sm leading-7">
+              {companyInfo.tagline} We craft high-performance AI software,
+              platforms, and digital products that set new standards.
             </p>
+
           </div>
 
-          {/* Column 2 — Services */}
-          <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-[#A78BFA]">
-              Services
+          {/* Services */}
+          <div className="w-full">
+
+            <h4 className={headingClass}>
+              Our Services
             </h4>
-            <ul className="space-y-3">
+
+            <ul className={listClass}>
               {footerData.services.map((service) => (
                 <li key={service}>
-                  <span className="text-text-muted text-sm hover:text-white transition-colors duration-200 cursor-default">
+                  <span className="text-sm text-slate-300 hover:text-white transition-colors">
                     {service}
                   </span>
                 </li>
               ))}
             </ul>
+
           </div>
 
-          {/* Column 3 — Quick Links */}
-          <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-[#A78BFA]">
+          {/* Quick Links */}
+          <div className="w-full">
+
+            <h4 className={headingClass}>
               Quick Links
             </h4>
-            <ul className="space-y-3">
+
+            <ul className={listClass}>
               {footerData.quickLinks.map((link) => (
                 <li key={link.label}>
-                  {link.href.startsWith('mailto:') ? (
-                    <a
-                      href={MAILTO_URL}
-                      className="text-text-muted text-sm hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleLinkClick(e, link.href)}
-                      className="text-text-muted text-sm hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  )}
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className="inline-flex items-center gap-1 text-sm text-slate-300 hover:text-[#60A5FA] transition-colors group"
+                  >
+                    {link.label}
+
+                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all" />
+                  </a>
                 </li>
               ))}
             </ul>
+
           </div>
 
-          {/* Column 4 — Contact */}
-          <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-[#A78BFA]">
+          {/* Contact Information */}
+          <div className="w-full min-w-0">
+
+            <h4 className={headingClass}>
               Contact Us
             </h4>
-            <ul className="space-y-4">
+
+            <ul className="space-y-5">
+
               <li>
                 <a
                   href={MAILTO_URL}
-                  className="flex items-center gap-3 text-text-muted text-sm hover:text-white transition-colors duration-200 group"
+                  className="flex items-center gap-3 group"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20">
-                    <Mail className="w-3.5 h-3.5 text-primary-light" />
-                  </div>
-                  {companyInfo.email}
+                  <span className="w-10 h-10 shrink-0 rounded-xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-[#60A5FA] group-hover:bg-blue-500/20 transition-colors">
+                    <Mail className="w-4 h-4" />
+                  </span>
+
+                  <span className="min-w-0 text-sm text-slate-300 group-hover:text-white transition-colors break-all">
+                    {companyInfo.email}
+                  </span>
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-text-muted text-sm">
-                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-3.5 h-3.5 text-primary-light" />
-                </div>
-                India / Global Support
+
+              <li className="flex items-center gap-3">
+                <span className="w-10 h-10 shrink-0 rounded-xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-[#60A5FA]">
+                  <MapPin className="w-4 h-4" />
+                </span>
+
+                <span className="text-sm text-slate-300">
+                  India / Global Support
+                </span>
               </li>
+
             </ul>
+
           </div>
+
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-text-dim text-xs sm:text-sm text-center md:text-left">
+        {/* Bottom Footer */}
+        <div className="mt-14 pt-7 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <p className="text-sm text-slate-400 text-center md:text-left">
             © {companyInfo.year} {companyInfo.name}. All rights reserved.
           </p>
-          <div className="flex gap-6">
+
+          <div className="flex flex-wrap justify-center items-center gap-7">
+
             {footerData.social.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
-                className="text-text-dim text-xs sm:text-sm hover:text-white transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-sm font-medium text-slate-300 hover:text-[#60A5FA] transition-colors"
               >
                 {social.label}
               </a>
             ))}
+
           </div>
+
         </div>
+
       </div>
     </footer>
   );
 }
-
