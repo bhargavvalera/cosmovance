@@ -13,7 +13,7 @@ export default function GlassCard({
   return (
     <motion.div
       className={`
-        relative rounded-2xl overflow-hidden
+        glass-card relative rounded-2xl overflow-hidden
         bg-bg-card/60 backdrop-blur-xl
         border border-white/[0.06]
         ${hover ? 'hover:border-white/[0.12] hover:bg-bg-card-hover/60 transition-all duration-500' : ''}
