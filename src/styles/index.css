@@ -171,22 +171,3 @@ a:focus-visible,button:focus-visible{outline:3px solid #22D3EE;outline-offset:3p
 @media(prefers-reduced-motion:reduce){
   #services .service-art-orbit,#services .service-art-float,#services .service-art-float-delayed{animation:none}
 }
-
-
-/* Homepage rhythm + visible trusted-company marquee */
-.trusted-strip{isolation:isolate}
-.trusted-marquee-wrap{mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
-.trusted-marquee{animation:trusted-company-marquee 32s linear infinite}
-.trusted-marquee:hover{animation-play-state:paused}
-.trusted-logo-item{min-width:max-content}
-@keyframes trusted-company-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.trusted-marquee{animation:none}}
-/* Home page sections use compact but consistent vertical rhythm */
-main #home{min-height:min(820px,100svh);padding-bottom:clamp(3.5rem,6vw,5.5rem)}
-main .trusted-strip{margin-top:0}
-main .trusted-strip + section{padding-top:clamp(4rem,6vw,6rem)}
-@media(max-width:767px){
-  main #home{min-height:auto;padding-bottom:3.5rem}
-  .trusted-strip{padding-top:2rem;padding-bottom:2rem}
-  .trusted-logo-item{padding-left:1.4rem;padding-right:1.4rem}
-}
