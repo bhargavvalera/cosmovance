@@ -14,7 +14,7 @@ import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#0B0F24] text-white selection:bg-primary/30 selection:text-white noise overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#F5F8FF] text-[#1E293B] selection:bg-primary/30 selection:text-[#1E293B] noise overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
