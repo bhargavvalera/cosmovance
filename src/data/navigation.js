@@ -1,14 +1,11 @@
 export const navLinks = [
-  { id: 'home', label: 'Home', href: '#home', isMailto: false },
-  { id: 'services', label: 'Services', href: '#services', isMailto: false },
-  { id: 'process', label: 'Process', href: '#process', isMailto: false },
-  { id: 'about', label: 'About', href: '#about', isMailto: false },
-  {
-    id: 'contact',
-    label: 'Contact',
-    href: 'mailto:founder@cosmovance.com?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies',
-    isMailto: true,
-  },
+  { id: 'home', label: 'Home', href: '/', isMailto: false },
+  { id: 'services', label: 'Services', href: '/services', isMailto: false },
+  { id: 'process', label: 'Process', href: '/process', isMailto: false },
+  { id: 'portfolio', label: 'Portfolio', href: '/portfolio', isMailto: false },
+  { id: 'about', label: 'About', href: '/about', isMailto: false },
+  { id: 'faq', label: 'FAQ', href: '/faq', isMailto: false },
+  { id: 'contact', label: 'Contact', href: '/contact', isMailto: false },
 ];
 
 export const heroStats = [
@@ -20,9 +17,7 @@ export const heroStats = [
 export const companyInfo = {
   name: 'Cosmovance Technologies',
   tagline: 'Building Intelligent Digital Experiences.',
-  description:
-    'We craft AI-powered applications, enterprise platforms, and digital products that set new standards for performance, design, and intelligence.',
+  description: 'We craft AI-powered applications, enterprise platforms, and digital products that set new standards for performance, design, and intelligence.',
   email: 'founder@cosmovance.com',
   year: new Date().getFullYear(),
 };
-
