@@ -66,7 +66,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#030712]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 lg:py-3.5 shadow-2xl shadow-black/50'
+          ? 'bg-[#0B0F24]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 lg:py-3.5 shadow-2xl shadow-black/50'
           : 'bg-transparent py-3.5 sm:py-5'
       }`}
     >
@@ -77,7 +77,7 @@ export default function Navbar() {
           onClick={(e) => handleNavClick(e, { href: '#home', isMailto: false })}
           className="flex items-center gap-3 group select-none"
         >
-          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(167,139,250,0.6)]">
            <img
   src={logo}
   alt={companyInfo.name}
@@ -88,10 +88,10 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col">
           <div className="flex flex-col leading-none">
-  <span className="font-display font-black text-base sm:text-lg md:text-xl tracking-wide bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent group-hover:from-purple-300 group-hover:via-pink-200 group-hover:to-purple-300 transition-all duration-300">
+  <span className="font-display font-black text-base sm:text-lg md:text-xl tracking-wide bg-gradient-to-r from-white via-sky-300 to-white bg-clip-text text-transparent group-hover:from-sky-300 group-hover:via-violet-300 group-hover:to-violet-300 transition-all duration-300">
     COSMOVANCE
   </span>
-  <span className="font-display font-medium text-[10px] sm:text-xs tracking-[0.35em] text-purple-300/70 group-hover:text-purple-300 transition-colors duration-300 mt-1">
+  <span className="font-display font-medium text-[10px] sm:text-xs tracking-[0.35em] text-accent-light/70 group-hover:text-accent-light transition-colors duration-300 mt-1">
     TECHNOLOGIES
   </span>
 </div>
@@ -117,7 +117,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center">
           <a
             href={MAILTO_URL}
-              className="relative inline-flex items-center gap-2.5 pl-6 pr-6 py-2.5 min-w-[150px] justify-center text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
+              className="relative inline-flex items-center gap-2.5 pl-6 pr-6 py-2.5 min-w-[150px] justify-center text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] group overflow-hidden"
 
           >
             <Mail className="w-4 h-4 text-primary transition-transform duration-300 group-hover:scale-110" />
@@ -158,7 +158,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#070b16] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
+              className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#111A35] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
@@ -207,7 +207,7 @@ export default function Navbar() {
               <a
                 href={MAILTO_URL}
                 onClick={closeMobile}
-  className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
+  className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-100 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] group overflow-hidden"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-5 h-5" />

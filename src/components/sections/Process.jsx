@@ -66,7 +66,7 @@ export default function Process() {
                           <div className="w-10 h-10 shrink-0 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                             <Icon className="w-5 h-5 text-primary-light" />
                           </div>
-                          <h3 className="font-display font-semibold text-xl text-white group-hover:text-purple-300 transition-colors">
+                          <h3 className="font-display font-semibold text-xl text-white group-hover:text-accent-light transition-colors">
                             {step.title}
                           </h3>
                         </div>
@@ -93,7 +93,7 @@ export default function Process() {
                   </div>
 
                   {/* Center Number Circle Badge */}
-                  <div className="absolute left-6 md:left-1/2 top-8 md:top-8 -translate-x-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full border-2 border-primary bg-[#080d1a] flex items-center justify-center shadow-[0_0_20px_rgba(79,70,229,0.4)]">
+                  <div className="absolute left-6 md:left-1/2 top-8 md:top-8 -translate-x-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full border-2 border-primary bg-[#0B0F24] flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.4)]">
                     <span className="font-display font-bold text-white text-sm">
                       {stepNumber}
                     </span>

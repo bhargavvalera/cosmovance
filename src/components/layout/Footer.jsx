@@ -22,7 +22,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-white/[0.08] bg-[#030612]">
+    <footer className="relative border-t border-white/[0.08] bg-[#0B0F24]">
       {/* Top gradient accent line */}
       <div
         className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
@@ -45,7 +45,7 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-lg text-white group-hover:text-purple-300 transition-colors">
+              <span className="font-display font-bold text-lg text-white group-hover:text-accent-light transition-colors">
                 Cosmovance
               </span>
             </a>
@@ -56,7 +56,7 @@ export default function Footer() {
 
           {/* Column 2 — Services */}
           <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-purple-300">
+            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-accent-light">
               Services
             </h4>
             <ul className="space-y-3">
@@ -72,7 +72,7 @@ export default function Footer() {
 
           {/* Column 3 — Quick Links */}
           <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-purple-300">
+            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-accent-light">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Column 4 — Contact */}
           <div>
-            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-purple-300">
+            <h4 className="font-display font-semibold text-white text-xs uppercase tracking-widest mb-5 text-accent-light">
               Contact Us
             </h4>
             <ul className="space-y-4">

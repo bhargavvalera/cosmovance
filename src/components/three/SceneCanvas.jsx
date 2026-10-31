@@ -27,7 +27,7 @@ export default function SceneCanvas({ mouseRef }) {
         <pointLight
           position={[5, 5, 5]}
           intensity={0.8}
-          color="#4F46E5"
+          color="#3B82F6"
           distance={20}
         />
 
@@ -35,7 +35,7 @@ export default function SceneCanvas({ mouseRef }) {
         <pointLight
           position={[-5, 3, -5]}
           intensity={0.5}
-          color="#7C3AED"
+          color="#A78BFA"
           distance={20}
         />
 
@@ -43,7 +43,7 @@ export default function SceneCanvas({ mouseRef }) {
         <pointLight
           position={[0, -5, 3]}
           intensity={0.3}
-          color="#06B6D4"
+          color="#22D3EE"
           distance={15}
         />
 

@@ -21,7 +21,7 @@ export default function ContactCTA() {
       <div className="container-narrow mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10">
         {/* Badge */}
         <AnimatedElement animation="fade-up">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-purple-300 text-xs font-medium tracking-wider uppercase mb-6 backdrop-blur-md">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-accent-light text-xs font-medium tracking-wider uppercase mb-6 backdrop-blur-md">
             Get in Touch
           </span>
         </AnimatedElement>

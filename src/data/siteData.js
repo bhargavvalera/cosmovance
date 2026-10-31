@@ -7,9 +7,6 @@ import {
   Rocket,
   LayoutGrid,
   Zap,
-  Linkedin,
-  Instagram,
-  Github,
   Shield,
   Users,
   Clock,
@@ -24,7 +21,7 @@ import {
   MapPin,
   Phone,
 } from 'lucide-react';
-
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 /* ============================================================
    SERVICES
    ============================================================ */
@@ -187,7 +184,7 @@ export const technologies = [
       { name: 'React', color: '#61DAFB' },
       { name: 'Next.js', color: '#FFFFFF' },
       { name: 'TypeScript', color: '#3178C6' },
-      { name: 'Tailwind CSS', color: '#06B6D4' },
+      { name: 'Tailwind CSS', color: '#22D3EE' },
     ],
   },
   {
@@ -204,7 +201,7 @@ export const technologies = [
       { name: 'Node.js', color: '#339933' },
       { name: 'Python', color: '#3776AB' },
       { name: 'Express', color: '#FFFFFF' },
-      { name: 'REST APIs', color: '#6366F1' },
+      { name: 'REST APIs', color: '#60A5FA' },
     ],
   },
   {
@@ -350,9 +347,9 @@ export const footerData = {
     icon: { email: Mail, phone: Phone, location: MapPin },
   },
   social: [
-    { label: 'Linkedin', href: 'https://www.linkedin.com/in/bhargav-valera-780738229/',icon: Linkedin },
-    {  label: 'Instagram', href: '#',icon: Instagram },
-    {  label: 'GitHub', href: 'https://github.com/bhargavvalera', icon: Github },
+    { label: 'Linkedin', href: 'https://www.linkedin.com/in/bhargav-valera-780738229/', icon: FaLinkedin },
+{ label: 'Instagram', href: '#', icon: FaInstagram },
+{ label: 'GitHub', href: 'https://github.com/bhargavvalera', icon: FaGithub },
   ],
 };
 

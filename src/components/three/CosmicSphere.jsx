@@ -78,7 +78,7 @@ export default function CosmicSphere({ mouseRef }) {
       <mesh ref={innerGlowRef}>
         <sphereGeometry args={[1.3, 32, 32]} />
         <meshBasicMaterial
-          color="#4F46E5"
+          color="#3B82F6"
           transparent
           opacity={0.12}
           side={THREE.BackSide}
@@ -89,10 +89,10 @@ export default function CosmicSphere({ mouseRef }) {
       <mesh>
         <sphereGeometry args={[1.2, 64, 64]} />
         <meshStandardMaterial
-          color="#0B1120"
+          color="#111A35"
           metalness={0.9}
           roughness={0.3}
-          emissive="#4F46E5"
+          emissive="#3B82F6"
           emissiveIntensity={0.08}
         />
       </mesh>
@@ -101,7 +101,7 @@ export default function CosmicSphere({ mouseRef }) {
       <mesh ref={wireframeRef}>
         <icosahedronGeometry args={[1.5, 2]} />
         <meshBasicMaterial
-          color="#4F46E5"
+          color="#3B82F6"
           wireframe
           transparent
           opacity={0.15}
@@ -112,7 +112,7 @@ export default function CosmicSphere({ mouseRef }) {
       <mesh rotation={[Math.PI / 4, 0, Math.PI / 4]}>
         <icosahedronGeometry args={[1.7, 1]} />
         <meshBasicMaterial
-          color="#7C3AED"
+          color="#A78BFA"
           wireframe
           transparent
           opacity={0.08}
@@ -131,7 +131,7 @@ export default function CosmicSphere({ mouseRef }) {
         </bufferGeometry>
         <pointsMaterial
           size={0.015}
-          color="#06B6D4"
+          color="#22D3EE"
           transparent
           opacity={0.6}
           sizeAttenuation
@@ -144,12 +144,12 @@ export default function CosmicSphere({ mouseRef }) {
       <group ref={ring1Ref} rotation={[Math.PI / 2.5, 0, 0]}>
         <mesh>
           <torusGeometry args={[2.2, 0.005, 16, 100]} />
-          <meshBasicMaterial color="#4F46E5" transparent opacity={0.25} />
+          <meshBasicMaterial color="#3B82F6" transparent opacity={0.25} />
         </mesh>
         {/* Orbiting dot */}
         <mesh position={[2.2, 0, 0]}>
           <sphereGeometry args={[0.03, 16, 16]} />
-          <meshBasicMaterial color="#6366F1" />
+          <meshBasicMaterial color="#60A5FA" />
         </mesh>
       </group>
 
@@ -157,11 +157,11 @@ export default function CosmicSphere({ mouseRef }) {
       <group ref={ring2Ref} rotation={[Math.PI / 1.8, Math.PI / 4, 0]}>
         <mesh>
           <torusGeometry args={[2.5, 0.003, 16, 100]} />
-          <meshBasicMaterial color="#7C3AED" transparent opacity={0.15} />
+          <meshBasicMaterial color="#A78BFA" transparent opacity={0.15} />
         </mesh>
         <mesh position={[2.5, 0, 0]}>
           <sphereGeometry args={[0.025, 16, 16]} />
-          <meshBasicMaterial color="#8B5CF6" />
+          <meshBasicMaterial color="#A78BFA" />
         </mesh>
       </group>
 
@@ -169,7 +169,7 @@ export default function CosmicSphere({ mouseRef }) {
       <group ref={ring3Ref} rotation={[Math.PI / 3, -Math.PI / 6, 0]}>
         <mesh>
           <torusGeometry args={[2.8, 0.002, 16, 100]} />
-          <meshBasicMaterial color="#06B6D4" transparent opacity={0.1} />
+          <meshBasicMaterial color="#22D3EE" transparent opacity={0.1} />
         </mesh>
         <mesh position={[2.8, 0, 0]}>
           <sphereGeometry args={[0.02, 16, 16]} />

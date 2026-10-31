@@ -39,14 +39,14 @@ export default function Services() {
                 <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                   <service.icon className="w-7 h-7 text-primary-light" />
                 </div>
-                <h3 className="font-display font-semibold text-xl text-white mb-4 group-hover:text-purple-300 transition-colors">
+                <h3 className="font-display font-semibold text-xl text-white mb-4 group-hover:text-accent-light transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-text-muted text-sm sm:text-base leading-relaxed">
                   {service.description}
                 </p>
               </div>
-              <div className="mt-8 pt-5 border-t border-white/[0.05] flex items-center justify-between text-sm font-semibold text-purple-400 group-hover:text-purple-300">
+              <div className="mt-8 pt-5 border-t border-white/[0.05] flex items-center justify-between text-sm font-semibold text-purple-400 group-hover:text-accent-light">
                 <span>Explore offering</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </div>

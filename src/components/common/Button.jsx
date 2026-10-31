@@ -26,7 +26,7 @@ export default function Button({
 
   const variantClasses = {
     primary:
-      'bg-gradient-to-r from-primary to-accent text-white hover:shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:scale-[1.02] active:scale-[0.98]',
+      'bg-gradient-to-r from-primary to-accent text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:scale-[1.02] active:scale-[0.98]',
     outline:
       'bg-transparent text-white border border-white/10 hover:border-white/25 hover:bg-white/[0.03] hover:scale-[1.02] active:scale-[0.98]',
     ghost:
