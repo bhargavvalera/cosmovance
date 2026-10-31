@@ -134,3 +134,40 @@ a:focus-visible,button:focus-visible{outline:3px solid #22D3EE;outline-offset:3p
 @media(max-width:1023px){#home{min-height:auto!important;padding-top:125px!important}#home .grid{gap:2.5rem}}
 @media(max-width:767px){.section-padding{padding:4.5rem 1.1rem}section#home{padding:112px 18px 70px!important}#home .grid{display:flex;flex-direction:column;gap:1.5rem}#home .grid>*{width:100%}#home h1{font-size:clamp(2.45rem,10vw,3.55rem)!important}#home .aspect-square{width:min(82vw,350px)!important;order:0}#home .grid>*:first-child{order:1}#home .grid>*:last-child{order:0}section:not(#home) .max-w-3xl{margin-bottom:2.5rem}#contact>.container-narrow{padding:2rem 1.25rem;border-radius:24px}#services .grid>*>div{min-height:0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* Services showcase cards */
+#services .service-showcase-card{
+  min-height:360px;
+  isolation:isolate;
+  transform:translateZ(0);
+}
+#services .service-showcase-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.48),transparent 42%,rgba(239,246,255,.24));
+  opacity:.8;
+}
+#services .service-showcase-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 55px rgba(59,130,246,.14);
+}
+#services .service-showcase-card h3{color:#0B1535!important}
+#services .service-showcase-card p{color:#52627D!important}
+#services .service-art-orbit{animation:service-float 5s ease-in-out infinite}
+#services .service-art-float{animation:service-float 4s ease-in-out infinite}
+#services .service-art-float-delayed{animation:service-float 4.8s ease-in-out infinite reverse}
+#services .service-showcase-card:hover .service-art-orbit{transform:rotate(-5deg) scale(1.06)}
+#services .service-offering-link{color:#fff!important}
+@keyframes service-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@media(max-width:639px){
+  #services .service-showcase-card{min-height:350px;padding:1.35rem}
+  #services .service-showcase-card h3{max-width:74%;font-size:1.12rem}
+  #services .service-artwork{right:.8rem;top:3.8rem;transform:scale(.82);transform-origin:top right}
+}
+@media(prefers-reduced-motion:reduce){
+  #services .service-art-orbit,#services .service-art-float,#services .service-art-float-delayed{animation:none}
+}
