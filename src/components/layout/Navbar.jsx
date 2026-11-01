@@ -60,11 +60,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#0B0F24]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 lg:py-3.5 shadow-2xl shadow-black/50'
-          : 'bg-transparent py-3.5 sm:py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? 'bg-[#0B0F24]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 lg:py-3.5 shadow-2xl shadow-black/50'
+        : 'bg-transparent py-3.5 sm:py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
@@ -74,23 +73,23 @@ export default function Navbar() {
           className="flex items-center gap-3 group select-none"
         >
           <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
-           <img
-  src={logo}
-  alt={companyInfo.name}
-  className="w-full h-full object-contain"
-  style={{ imageRendering: 'auto' }}
-  loading="eager"
-/>
+            <img
+              src={logo}
+              alt={companyInfo.name}
+              className="w-full h-full object-contain"
+              style={{ imageRendering: 'auto' }}
+              loading="eager"
+            />
           </div>
           <div className="flex flex-col">
-          <div className="flex flex-col leading-none">
-  <span className="font-sans font-extrabold text-base sm:text-lg md:text-xl tracking-tight bg-gradient-to-r from-white via-[#FBCFE8] to-white bg-clip-text text-transparent group-hover:from-[#A78BFA] group-hover:via-pink-200 group-hover:to-[#A78BFA] transition-all duration-300">
-    COSMOVANCE
-  </span>
-  <span className="font-sans font-semibold text-[9px] sm:text-[10px] tracking-[0.22em] text-[#A78BFA]/80 group-hover:text-[#A78BFA] transition-colors duration-300 mt-1">
-    TECHNOLOGIES
-  </span>
-</div>
+            <div className="flex flex-col leading-none">
+              <span className="font-sans font-extrabold text-base sm:text-lg md:text-xl tracking-tight bg-gradient-to-r from-white via-[#FBCFE8] to-white bg-clip-text text-transparent group-hover:from-[#A78BFA] group-hover:via-pink-200 group-hover:to-[#A78BFA] transition-all duration-300">
+                COSMOVANCE
+              </span>
+              <span className="font-sans font-semibold text-[9px] sm:text-[10px] tracking-[0.22em] text-[#A78BFA]/80 group-hover:text-[#A78BFA] transition-colors duration-300 mt-1">
+                TECHNOLOGIES
+              </span>
+            </div>
           </div>
         </a>
 
@@ -113,12 +112,11 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center">
           <a
             href={MAILTO_URL}
-              className="relative inline-flex items-center gap-2.5 pl-6 pr-6 py-2.5 min-w-[150px] justify-center text-sm font-semibold text-[#0B0F24] bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
-
+            onClick={closeMobile}
+            className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-white bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#A855F7] rounded-full hover:brightness-110 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_28px_rgba(139,92,246,0.55)] group overflow-hidden"
           >
-            <Mail className="w-4 h-4 text-primary transition-transform duration-300 group-hover:scale-110" />
-            <span className="relative z-10 text-[#0B0F24] font-bold tracking-tight">Contact Us</span>
-            <ArrowRight className="w-4 h-4 text-[#0B0F24] transition-transform duration-300 group-hover:translate-x-1" />
+            <span>Contact Us</span>
+            <ArrowRight className="w-5 h-5 text-white" />
           </a>
         </div>
 
@@ -187,9 +185,11 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-[#E2E8F0] hover:text-white font-medium text-base transition-all border border-white/[0.04]"
+                    className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.09] text-[#E2E8F0] hover:text-white font-medium text-base transition-all border border-white/[0.08]"
                   >
-                    <span>{link.label}</span>
+                    <span style={{ color: '#E2E8F0' }}>
+                      {link.label}
+                    </span>
                     {link.isMailto ? (
                       <Mail className="w-4 h-4 text-accent" />
                     ) : (
@@ -203,7 +203,7 @@ export default function Navbar() {
               <a
                 href={MAILTO_URL}
                 onClick={closeMobile}
-  className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-[#0B0F24] bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
+                className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-[#0B0F24] bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-5 h-5" />

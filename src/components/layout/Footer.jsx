@@ -2,7 +2,7 @@ import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { footerData } from '../../data/siteData';
 import { companyInfo } from '../../data/navigation';
-import logo from '../../assets/cosmovance_logo.png';
+import logo from '../../assets/cosmovance_technologies_icon.png';
 
 // Social Media Icons
 function SocialIcon({ label }) {
@@ -56,8 +56,7 @@ export default function Footer() {
   };
 
   const headingClass =
-    "mb-6 min-h-[20px] text-xs font-bold uppercase tracking-[0.14em] leading-5 text-[#A78BFA]";
-
+    "mb-6 min-h-[30px] font-display text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-white";
   const listClass = "space-y-4";
 
   return (
@@ -81,23 +80,30 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.85fr_1.2fr] gap-x-10 xl:gap-x-14 gap-y-12 items-start">
 
           {/* Company Information */}
+
           <div className="w-full max-w-sm">
             <a
               href="/"
               onClick={(e) => handleLinkClick(e, '/')}
-              className="inline-flex items-center gap-3 mb-5 group"
+              className="inline-flex items-center gap-3 mb-7 group"
             >
-              <div className="w-12 h-12 shrink-0 p-1.5 rounded-xl bg-white border border-white/20 flex items-center justify-center">
+              <div className="relative w-[82px] h-[82px] shrink-0 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full bg-blue-500/15 blur-2xl" />
                 <img
                   src={logo}
-                  alt={`${companyInfo.name} logo`}
-                  className="w-full h-full object-contain"
+                  alt="Cosmovance Technologies"
+                  className="relative z-10 w-full h-full object-contain"
                 />
               </div>
 
-              <span className="font-display font-bold text-xl text-white group-hover:text-[#A78BFA] transition-colors">
-                Cosmovance
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="font-sans font-extrabold text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-white via-[#C4B5FD] to-[#818CF8] bg-clip-text text-transparent">
+                  COSMOVANCE
+                </span>
+                <span className="font-sans font-semibold text-[10px] tracking-[0.24em] text-[#A78BFA] mt-2">
+                  TECHNOLOGIES
+                </span>
+              </div>
             </a>
 
             <p className="text-slate-300 text-sm leading-7">
@@ -113,8 +119,7 @@ export default function Footer() {
             <ul className={listClass}>
               {footerData.services.map((service) => (
                 <li key={service}>
-                  <span className="text-sm text-slate-300 hover:text-white transition-colors">
-                    {service}
+                  <span className="text-sm text-slate-300 hover:text-white transition-colors">       {service}
                   </span>
                 </li>
               ))}

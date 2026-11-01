@@ -353,8 +353,8 @@ export const footerData = {
     icon: { email: Mail, phone: Phone, location: MapPin },
   },
   social: [
-    { label: 'Linkedin', href: 'https://www.linkedin.com/in/bhargav-valera-780738229/', icon: FaLinkedin },
-{ label: 'Instagram', href: '#', icon: FaInstagram },
+    { label: 'Linkedin', href: 'https://www.linkedin.com/company/cosmovance-technologies/home/', icon: FaLinkedin },
+// { label: 'Instagram', href: '#', icon: FaInstagram },
 { label: 'GitHub', href: 'https://github.com/bhargavvalera', icon: FaGithub },
   ],
 };
