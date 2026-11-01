@@ -166,7 +166,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #22D3EE;outline-offset:3p
 @media(max-width:639px){
   #services .service-showcase-card{min-height:350px;padding:1.35rem}
   #services .service-showcase-card h3{max-width:74%;font-size:1.12rem}
-  #services .service-artwork{right:.8rem;top:3.8rem;transform:scale(.82);transform-origin:top right}
+  #services .service-artwork{right:.8rem;top:4.5rem;transform:scale(.78);transform-origin:top right}
+  #services .service-showcase-card{min-height:430px}
+  #services .service-showcase-card h3{max-width:100%}
 }
 @media(prefers-reduced-motion:reduce){
   #services .service-art-orbit,#services .service-art-float,#services .service-art-float-delayed{animation:none}
@@ -245,35 +247,4 @@ header nav a:active,button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){
   .gradient-text{animation:none}
   .site-scroll-progress{display:none}
-}
-
-
-/* Mobile navigation contrast fix */
-@media (max-width: 1023px) {
-  header .mobile-nav-drawer {
-    background: #0B0F24 !important;
-    color: #F8FAFC !important;
-  }
-
-  header .mobile-nav-drawer .mobile-nav-link,
-  header .mobile-nav-drawer .mobile-nav-link span,
-  header .mobile-nav-drawer > div:first-child span {
-    color: #F8FAFC !important;
-    opacity: 1 !important;
-  }
-
-  header .mobile-nav-drawer .mobile-nav-link svg {
-    color: #93C5FD !important;
-    opacity: 1 !important;
-  }
-
-  header .mobile-nav-drawer button {
-    color: #0B0F24 !important;
-    background: #F1F5F9 !important;
-  }
-
-  header .mobile-nav-drawer a:focus-visible {
-    outline: 2px solid #60A5FA;
-    outline-offset: 3px;
-  }
 }

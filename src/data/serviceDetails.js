@@ -6,6 +6,27 @@ import {
 
 export const serviceDetails = [
   {
+    slug: 'business-consultant',
+    title: 'Business Consultant',
+    eyebrow: 'Clear strategy for confident business decisions',
+    description: 'Practical business consulting to clarify goals, improve operations, and turn growth opportunities into an actionable roadmap.',
+    intro: 'We help you understand business challenges, identify opportunities, and prioritize practical steps across operations, customer experience, and digital growth.',
+    outcome: 'A clearer direction, prioritized initiatives, and an actionable plan connected to your business goals.',
+    icon: Users,
+    features: [
+      { icon: Search, title: 'Business assessment', text: 'Review current workflows, challenges, and opportunities for improvement.' },
+      { icon: Workflow, title: 'Process improvement', text: 'Identify friction and recommend more effective ways of working.' },
+      { icon: Gauge, title: 'Growth roadmap', text: 'Prioritize initiatives with practical milestones and measurable outcomes.' },
+      { icon: ShieldCheck, title: 'Digital guidance', text: 'Align technology choices with business needs and available resources.' },
+    ],
+    technologies: ['Business Analysis', 'Process Mapping', 'Digital Strategy', 'Workflow Design', 'Growth Planning'],
+    process: ['Understand your goals and current operations', 'Assess challenges and opportunities', 'Prioritize recommendations and milestones', 'Support implementation and review progress'],
+    faqs: [
+      ['Do you work with early-stage businesses?', 'Yes. Consulting can help early-stage teams clarify priorities, validate plans, and make informed decisions.'],
+      ['Will you provide an actionable plan?', 'Yes. Recommendations are organized into practical priorities and next steps based on the agreed scope.'],
+    ],
+  },
+  {
     slug: 'custom-software',
     title: 'Custom Software Development',
     eyebrow: 'Software built around your business',
@@ -48,11 +69,11 @@ export const serviceDetails = [
     ],
   },
   {
-    slug: 'flutter-app-development',
-    title: 'Flutter App Development',
-    eyebrow: 'One codebase. Beautiful mobile experiences.',
+    slug: 'mobile-app-development',
+    title: 'Mobile App Development',
+    eyebrow: 'Beautiful mobile experiences for every user.',
     description: 'Beautiful, natively compiled mobile applications for iOS and Android from a single codebase, delivered fast.',
-    intro: 'Create a consistent mobile experience across iOS and Android. We build Flutter applications with clear user journeys, maintainable code, and reliable integrations.',
+    intro: 'Create a consistent mobile experience across iOS and Android with clear user journeys, maintainable code, and reliable integrations.',
     outcome: 'A polished cross-platform app that is ready to evolve with your users and product roadmap.',
     icon: Smartphone,
     features: [
@@ -64,16 +85,16 @@ export const serviceDetails = [
     technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'Node.js', 'App Store / Play Store'],
     process: ['Define app goals and user flows', 'Design screens and interactions', 'Develop and integrate features', 'Test and prepare store releases'],
     faqs: [
-      ['Can one Flutter app support iOS and Android?', 'Yes. Flutter allows a shared codebase for both platforms, with platform-specific work where required.'],
+      ['Can one mobile app support iOS and Android?', 'Yes. We choose an appropriate development approach to support both platforms, including shared-codebase options where suitable.'],
       ['Can you connect the app to our existing backend?', 'Yes. We can integrate APIs and services based on your backend architecture.'],
     ],
   },
   {
-    slug: 'react-web-development',
-    title: 'React Web Development',
-    eyebrow: 'Fast, responsive web experiences',
+    slug: 'web-development',
+    title: 'Web Development',
+    eyebrow: 'Fast, responsive web experiences for your business',
     description: 'High-performance web applications built with React, optimized for speed, SEO, and exceptional user experiences.',
-    intro: 'We create modern React websites and interfaces that are easy to use, responsive across devices, and structured for ongoing product growth.',
+    intro: 'We create modern websites and web applications that are easy to use, responsive across devices, and structured for ongoing product growth.',
     outcome: 'A web experience that makes your product easier to discover, understand, and use.',
     icon: Globe,
     features: [

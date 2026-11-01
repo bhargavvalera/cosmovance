@@ -27,6 +27,12 @@ import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
    ============================================================ */
 export const services = [
   {
+    icon: Users,
+    title: 'Business Consultant',
+    description:
+      'Practical business consulting to clarify goals, improve operations, and turn growth opportunities into an actionable roadmap.',
+  },
+  {
     icon: Code2,
     title: 'Custom Software Development',
     description:
@@ -40,15 +46,15 @@ export const services = [
   },
   {
     icon: Smartphone,
-    title: 'Flutter App Development',
+    title: 'Mobile App Development',
     description:
-      'Beautiful, natively compiled mobile applications for iOS and Android from a single codebase, delivered fast.',
+      'Beautiful, high-performance mobile applications for iOS and Android, designed around your users and business goals.',
   },
   {
     icon: Globe,
-    title: 'React Web Development',
+    title: 'Web Development',
     description:
-      'High-performance web applications built with React, optimized for speed, SEO, and exceptional user experiences.',
+      'High-performance, responsive websites and web applications optimized for speed, SEO, and exceptional user experiences.',
   },
   {
     icon: Palette,
@@ -332,7 +338,7 @@ export const faqs = [
    FOOTER
    ============================================================ */
 export const footerData = {
-  services: ['Custom Software', 'AI Solutions', 'Flutter Apps', 'React Development', 'UI/UX Design', 'SaaS MVP'],
+  services: ['Business Consulting', 'Custom Software', 'AI Solutions', 'Mobile App Development', 'Web Development', 'UI/UX Design', 'SaaS MVP'],
   quickLinks: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },

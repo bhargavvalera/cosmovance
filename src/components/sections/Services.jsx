@@ -6,13 +6,18 @@ import { services } from '../../data/siteData';
 import { serviceDetails } from '../../data/serviceDetails';
 import { Link } from 'react-router-dom';
 import {
-  ArrowUpRight, Layers3, ShieldCheck, Settings2, Sparkles, Brain, Users,
+  ArrowUpRight, BriefcaseBusiness, Layers3, ShieldCheck, Settings2, Sparkles, Brain, Users,
   BarChart3, Zap, Smartphone, Apple, Bot, Gauge, Search, Monitor,
   Palette, MousePointer2, Star, Rocket, Box, TrendingUp, LayoutDashboard,
   Radio, Workflow, CheckCircle2, Code2, Globe, Cloud, LockKeyhole,
 } from 'lucide-react';
 
 const cardStyles = [
+  {
+    tone: 'teal',
+    chips: [{ label: 'Strategy', icon: BriefcaseBusiness }, { label: 'Growth', icon: TrendingUp }, { label: 'Planning', icon: CheckCircle2 }],
+    art: [BriefcaseBusiness, TrendingUp, Users],
+  },
   {
     tone: 'violet',
     chips: [{ label: 'Scalable', icon: Layers3 }, { label: 'Secure', icon: ShieldCheck }, { label: 'Custom', icon: Settings2 }],
@@ -119,9 +124,9 @@ function ServiceArtwork({ icons, tone }) {
   const [MainIcon, FloatIconOne, FloatIconTwo] = icons;
   const style = toneClasses[tone];
   return (
-    <div className="service-artwork pointer-events-none absolute right-4 top-5 flex h-[118px] w-[145px] items-center justify-center sm:right-5">
+    <div className="service-artwork pointer-events-none absolute right-4 top-[4.5rem] z-0 flex h-[104px] w-[128px] items-center justify-center sm:right-5">
       <div className={`absolute inset-1 rounded-full bg-gradient-to-br ${style.glow} blur-xl`} />
-      <div className={`service-art-orbit absolute h-[102px] w-[102px] rounded-[30px] border border-white/80 bg-white/60 shadow-[0_12px_30px_rgba(76,99,160,0.10)] backdrop-blur-sm ${style.art}`}>
+      <div className={`service-art-orbit absolute h-[88px] w-[88px] rounded-[30px] border border-white/80 bg-white/60 shadow-[0_12px_30px_rgba(76,99,160,0.10)] backdrop-blur-sm ${style.art}`}>
         <MainIcon className="absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 stroke-[1.7]" />
       </div>
       <div className={`service-art-float absolute right-0 top-1 flex h-10 w-10 items-center justify-center rounded-xl border border-white bg-white/90 shadow-lg shadow-slate-300/40 ${style.art}`}>
@@ -153,7 +158,7 @@ export default function Services() {
           const detail = serviceDetails.find((item) => item.title === service.title);
           return (
             <AnimatedElement key={service.title} animation="fade-up" delay={index * 0.07} once>
-              <article className={`service-showcase-card group relative flex h-full min-h-[360px] flex-col overflow-hidden rounded-[26px] border border-slate-200/90 bg-white p-6 shadow-[0_14px_36px_rgba(43,67,120,0.07)] transition-all duration-500 ${tone.border}`}>
+              <article className={`service-showcase-card group relative flex h-full min-h-[430px] flex-col overflow-hidden rounded-[26px] border border-slate-200/90 bg-white p-6 shadow-[0_14px_36px_rgba(43,67,120,0.07)] transition-all duration-500 ${tone.border}`}>
                 <div className={`pointer-events-none absolute -right-14 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${tone.glow} opacity-70 blur-2xl transition-transform duration-700 group-hover:scale-125`} />
                 <div className="relative z-10 flex items-center justify-between">
                   <span className={`rounded-full border px-3.5 py-1.5 text-xs font-bold tracking-wide ${tone.number}`}>
@@ -164,14 +169,14 @@ export default function Services() {
 
                 <ServiceArtwork icons={visual.art} tone={visual.tone} />
 
-                <div className="relative z-10 mt-5 flex h-10 w-10 items-center justify-center rounded-2xl border border-white bg-white/90 shadow-sm">
+                <div className="relative z-10 mt-[9rem] flex h-10 w-10 items-center justify-center rounded-2xl border border-white bg-white/90 shadow-sm">
                   <div className={`flex h-full w-full items-center justify-center rounded-[14px] ${tone.icon}`}>
                     <DetailIcon className="h-5 w-5" />
                   </div>
                 </div>
 
                 <div className="relative z-10 mt-4">
-                  <h3 className="max-w-[78%] text-[19px] font-bold leading-[1.18] tracking-tight text-[#0B1535] sm:min-h-[46px]">
+                  <h3 className="max-w-full text-[19px] font-bold leading-[1.18] tracking-tight text-[#0B1535] sm:min-h-[46px]">
                     {service.title}
                   </h3>
                   <p className="mt-2 min-h-[76px] text-[13px] leading-[1.55] text-slate-600">
