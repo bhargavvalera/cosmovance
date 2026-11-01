@@ -246,3 +246,34 @@ header nav a:active,button:active{transform:scale(.97)}
   .gradient-text{animation:none}
   .site-scroll-progress{display:none}
 }
+
+
+/* Mobile navigation contrast fix */
+@media (max-width: 1023px) {
+  header .mobile-nav-drawer {
+    background: #0B0F24 !important;
+    color: #F8FAFC !important;
+  }
+
+  header .mobile-nav-drawer .mobile-nav-link,
+  header .mobile-nav-drawer .mobile-nav-link span,
+  header .mobile-nav-drawer > div:first-child span {
+    color: #F8FAFC !important;
+    opacity: 1 !important;
+  }
+
+  header .mobile-nav-drawer .mobile-nav-link svg {
+    color: #93C5FD !important;
+    opacity: 1 !important;
+  }
+
+  header .mobile-nav-drawer button {
+    color: #0B0F24 !important;
+    background: #F1F5F9 !important;
+  }
+
+  header .mobile-nav-drawer a:focus-visible {
+    outline: 2px solid #60A5FA;
+    outline-offset: 3px;
+  }
+}

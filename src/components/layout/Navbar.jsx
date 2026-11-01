@@ -154,7 +154,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
+              className="mobile-nav-drawer lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
@@ -187,13 +187,13 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-[#E2E8F0] hover:text-white font-medium text-base transition-all border border-white/[0.04]"
+                    className="mobile-nav-link flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] !text-white hover:!text-white font-medium text-base transition-all border border-white/[0.10]"
                   >
-                    <span>{link.label}</span>
+                    <span className="!text-white">{link.label}</span>
                     {link.isMailto ? (
                       <Mail className="w-4 h-4 text-accent" />
                     ) : (
-                      <ArrowRight className="w-4 h-4 text-[#64748B]" />
+                      <ArrowRight className="w-4 h-4 text-[#93C5FD]" />
                     )}
                   </motion.a>
                 ))}
