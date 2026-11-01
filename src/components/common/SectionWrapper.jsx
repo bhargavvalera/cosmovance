@@ -1,7 +1,3 @@
-/**
- * Reusable section container with consistent padding, max-width, and anchor ID.
- * Reduces boilerplate across all page sections.
- */
 export default function SectionWrapper({
   id,
   children,
@@ -12,9 +8,17 @@ export default function SectionWrapper({
   return (
     <section
       id={id}
-      className={`${noPadding ? '' : 'section-padding'} relative overflow-hidden ${className}`}
+      className={`
+        ${noPadding ? '' : 'section-padding'}
+        first:!pt-28
+        md:first:!pt-32
+        lg:first:!pt-36
+        relative overflow-hidden
+        scroll-mt-24
+        ${className}
+      `}
     >
-      <div className={`${containerClass} mx-auto px-6 md:px-8`}>
+      <div className={`${containerClass} mx-auto px-5 sm:px-6 md:px-8`}>
         {children}
       </div>
     </section>

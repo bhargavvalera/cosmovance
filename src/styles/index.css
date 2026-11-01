@@ -171,3 +171,78 @@ a:focus-visible,button:focus-visible{outline:3px solid #22D3EE;outline-offset:3p
 @media(prefers-reduced-motion:reduce){
   #services .service-art-orbit,#services .service-art-float,#services .service-art-float-delayed{animation:none}
 }
+
+
+/* Homepage rhythm + visible trusted-company marquee */
+.trusted-strip{isolation:isolate}
+.trusted-marquee-wrap{mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.trusted-marquee{animation:trusted-company-marquee 32s linear infinite}
+.trusted-marquee:hover{animation-play-state:paused}
+.trusted-logo-item{min-width:max-content}
+@keyframes trusted-company-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.trusted-marquee{animation:none}}
+/* Home page sections use compact but consistent vertical rhythm */
+main #home{min-height:min(820px,100svh);padding-bottom:clamp(3.5rem,6vw,5.5rem)}
+main .trusted-strip{margin-top:0}
+main .trusted-strip + section{padding-top:clamp(4rem,6vw,6rem)}
+@media(max-width:767px){
+  main #home{min-height:auto;padding-bottom:3.5rem}
+  .trusted-strip{padding-top:2rem;padding-bottom:2rem}
+  .trusted-logo-item{padding-left:1.4rem;padding-right:1.4rem}
+}
+
+
+/* Premium motion layer: consistent interactions across every route */
+.site-scroll-progress{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:100;
+  transform-origin:0 50%;
+  background:linear-gradient(90deg,#3B82F6 0%,#8B5CF6 52%,#22D3EE 100%);
+  box-shadow:0 0 16px rgba(59,130,246,.35);
+  pointer-events:none;
+}
+main{isolation:isolate}
+main>section{overflow:hidden}
+main>section:not(#home)::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width: min(34vw,420px);height:min(34vw,420px);right:-13%;top:8%;
+  border-radius:50%;background:radial-gradient(circle,rgba(96,165,250,.075),transparent 68%);
+}
+main>section:nth-of-type(odd):not(#home)::after{
+  right:auto;left:-15%;top:22%;
+  background:radial-gradient(circle,rgba(167,139,250,.075),transparent 68%);
+}
+.glass-card,.service-showcase-card,
+#process .group>div,#testimonials .grid>*>div,
+#about [class*="rounded-"]{
+  transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s ease,border-color .3s ease;
+}
+.glass-card:hover,#testimonials .grid>*>div:hover{
+  transform:translateY(-7px);
+  box-shadow:0 24px 55px rgba(59,130,246,.12);
+}
+#portfolio .grid>*>div:hover{transform:translateY(-7px)}
+#portfolio .grid>*>div{transition:transform .35s ease,box-shadow .35s ease}
+#portfolio .grid>*>div>div:first-child{overflow:hidden;position:relative}
+#portfolio .grid>*>div>div:first-child::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.28) 48%,transparent 70%);
+  transform:translateX(-120%);transition:transform .75s ease;
+}
+#portfolio .grid>*>div:hover>div:first-child::after{transform:translateX(120%)}
+#process .group>div:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(59,130,246,.11)}
+#technologies .grid>*>div>div:hover{transform:translateY(-4px);border-color:#93C5FD;box-shadow:0 16px 34px rgba(59,130,246,.11)}
+#technologies .grid>*>div>div{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+#about [class*="rounded-"]:hover{transform:translateY(-4px)}
+#contact a[class*="rounded-"]:hover,#contact button:hover{transform:translateY(-3px)}
+header nav a{transition:color .25s ease}
+header nav a:active,button:active{transform:scale(.97)}
+@keyframes soft-orbit{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(0,-10px,0) rotate(2deg)}}
+@keyframes gradient-flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.gradient-text{background-size:200% 200%;animation:gradient-flow 8s ease infinite}
+@media(hover:none){
+  .glass-card:hover,#testimonials .grid>*>div:hover,#portfolio .grid>*>div:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .gradient-text{animation:none}
+  .site-scroll-progress{display:none}
+}
