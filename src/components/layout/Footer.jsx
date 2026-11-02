@@ -57,11 +57,16 @@ export default function Footer() {
     }
   };
 
-  // Compact footer spacing
- const headingClass =
-  "mb-8 font-display text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-white";
+  // Section heading
+  const headingClass =
+    "font-display text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-white";
 
-  const listClass = "space-y-3";
+  // Heading underline with space below
+  const underlineClass =
+    "mt-3 mb-7 h-[2px] w-full bg-gradient-to-r from-[#60A5FA] to-[#A78BFA]";
+
+  // Equal spacing between links
+  const listClass = "space-y-5";
 
   return (
     <footer className="relative overflow-hidden bg-[#0B0F24] text-white border-t border-white/10">
@@ -71,31 +76,35 @@ export default function Footer() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle at 85% 15%, rgba(59,130,246,0.16), transparent 35%), radial-gradient(circle at 10% 100%, rgba(167,139,250,0.10), transparent 35%)'
+            'radial-gradient(circle at 85% 15%, rgba(59,130,246,0.16), transparent 35%), radial-gradient(circle at 10% 100%, rgba(167,139,250,0.10), transparent 35%)',
         }}
       />
 
       {/* Top Accent */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#60A5FA] to-transparent" />
 
-      <div className="relative w-full max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10 py-14 md:py-16">
+      <div className="relative w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 py-14 md:py-16">
 
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.85fr_1.2fr] gap-x-10 xl:gap-x-14 gap-y-10 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.85fr_1.2fr] gap-x-10 xl:gap-x-14 gap-y-12 items-start">
 
           {/* Company Information */}
           <div className="w-full max-w-sm">
+
+            {/* Logo and Brand */}
             <a
               href="/"
               onClick={(e) => handleLinkClick(e, '/')}
-              className="inline-flex items-center gap-3 mb-5 group"
+              className="inline-flex items-center gap-3 mb-6 group"
             >
-              <div className="relative w-[82px] h-[82px] shrink-0 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full bg-blue-500/15 blur-2xl" />
+              <div className="relative w-[82px] h-[82px] shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-2xl" />
+
                 <img
                   src={logo}
                   alt="Cosmovance Technologies"
                   className="relative z-10 w-full h-full object-contain"
+                  loading="eager"
                 />
               </div>
 
@@ -103,26 +112,29 @@ export default function Footer() {
                 <span className="font-sans font-extrabold text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-white via-[#C4B5FD] to-[#818CF8] bg-clip-text text-transparent">
                   COSMOVANCE
                 </span>
+
                 <span className="font-sans font-semibold text-[10px] tracking-[0.24em] text-[#A78BFA] mt-2">
                   TECHNOLOGIES
                 </span>
               </div>
             </a>
 
-            <p className="text-slate-300 text-sm leading-7">
+            {/* Company Description */}
+            <p className="max-w-sm text-slate-300 text-sm leading-7">
               {companyInfo.tagline} We craft high-performance AI software,
               platforms, and digital products that set new standards.
             </p>
           </div>
 
-          {/* Services */}
-          <div className="w-full">
+          {/* Our Services */}
+          <div className="w-full min-w-0">
             <h4 className={headingClass}>Our Services</h4>
+            <div className={underlineClass} />
 
             <ul className={listClass}>
               {footerData.services.map((service) => (
                 <li key={service}>
-                  <span className="text-sm text-slate-300 hover:text-white transition-colors">
+                  <span className="text-sm sm:text-base text-slate-300 hover:text-white transition-colors">
                     {service}
                   </span>
                 </li>
@@ -131,8 +143,9 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="w-full">
+          <div className="w-full min-w-0">
             <h4 className={headingClass}>Quick Links</h4>
+            <div className={underlineClass} />
 
             <ul className={listClass}>
               {footerData.quickLinks.map((link) => (
@@ -140,7 +153,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="inline-flex items-center gap-1 text-sm text-slate-300 hover:text-[#60A5FA] transition-colors group"
+                    className="inline-flex items-center gap-1 text-sm sm:text-base text-slate-300 hover:text-[#60A5FA] transition-colors group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all" />
@@ -153,29 +166,30 @@ export default function Footer() {
           {/* Contact Information */}
           <div className="w-full min-w-0">
             <h4 className={headingClass}>Contact Us</h4>
+            <div className={underlineClass} />
 
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               <li>
                 <a
                   href={MAILTO_URL}
                   className="flex items-center gap-3 group"
                 >
-                  <span className="w-10 h-10 shrink-0 rounded-xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-[#60A5FA] group-hover:bg-blue-500/20 transition-colors">
-                    <Mail className="w-4 h-4" />
+                  <span className="w-11 h-11 shrink-0 rounded-xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-[#60A5FA] group-hover:bg-blue-500/20 transition-colors">
+                    <Mail className="w-5 h-5" />
                   </span>
 
-                  <span className="min-w-0 text-sm text-slate-300 group-hover:text-white transition-colors break-all">
+                  <span className="min-w-0 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors break-all">
                     {companyInfo.email}
                   </span>
                 </a>
               </li>
 
               <li className="flex items-center gap-3">
-                <span className="w-10 h-10 shrink-0 rounded-xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-[#60A5FA]">
-                  <MapPin className="w-4 h-4" />
+                <span className="w-11 h-11 shrink-0 rounded-xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-[#60A5FA]">
+                  <MapPin className="w-5 h-5" />
                 </span>
 
-                <span className="text-sm text-slate-300">
+                <span className="text-sm sm:text-base text-slate-300">
                   India / Global Support
                 </span>
               </li>
@@ -185,7 +199,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="mt-14 pt-7 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
 
           <p className="text-sm text-slate-400 text-center md:text-left">
             © {companyInfo.year} {companyInfo.name}. All rights reserved.
@@ -212,7 +226,6 @@ export default function Footer() {
           </div>
 
         </div>
-
       </div>
     </footer>
   );
