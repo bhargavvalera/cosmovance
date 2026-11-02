@@ -155,25 +155,47 @@ export default function Navbar() {
               className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
             >
               {/* Drawer Header */}
+
+              {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-white/10 p-1 flex items-center justify-center">
-                    <img src={logo} alt={companyInfo.name} className="w-full h-full object-contain" />
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-11 h-11 shrink-0 rounded-xl bg-white p-1 flex items-center justify-center shadow-[0_0_18px_rgba(139,92,246,0.2)]">
+                    <img
+                      src={logo}
+                      alt={companyInfo.name}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                  <span className="font-display font-bold text-lg text-white">
-                    Cosmovance
-                  </span>
+
+                  <div className="flex flex-col min-w-0 leading-tight">
+                    <span
+                      className="font-sans font-extrabold text-lg tracking-tight"
+                      style={{
+                        color: '#FFFFFF',
+                        WebkitTextFillColor: '#FFFFFF',
+                        background: 'none',
+                        opacity: 1,
+                        visibility: 'visible',
+                      }}
+                    >
+                      COSMOVANCE
+                    </span>
+                    <span className="font-sans font-semibold text-[10px] tracking-[0.22em] text-[#A78BFA] mt-1">
+                      TECHNOLOGIES
+                    </span>
+                  </div>
                 </div>
 
                 <button
                   type="button"
                   onClick={closeMobile}
-                  className="p-2 rounded-lg bg-white/10 text-[#64748B] hover:text-white transition-colors"
+                  className="p-2.5 shrink-0 rounded-xl bg-white text-[#0B0F24] hover:bg-[#EDE9FE] active:scale-95 transition-all"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
+
 
               {/* Drawer Links List: Home, Services, Process, About, Contact */}
               <div className="flex flex-col gap-2">

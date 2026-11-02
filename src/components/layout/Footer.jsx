@@ -1,3 +1,4 @@
+
 import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { footerData } from '../../data/siteData';
@@ -42,6 +43,7 @@ function SocialIcon({ label }) {
 
   return null;
 }
+
 export default function Footer() {
   const navigate = useNavigate();
 
@@ -55,9 +57,11 @@ export default function Footer() {
     }
   };
 
-  const headingClass =
-    "mb-6 min-h-[30px] font-display text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-white";
-  const listClass = "space-y-4";
+  // Compact footer spacing
+ const headingClass =
+  "mb-8 font-display text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-white";
+
+  const listClass = "space-y-3";
 
   return (
     <footer className="relative overflow-hidden bg-[#0B0F24] text-white border-t border-white/10">
@@ -77,15 +81,14 @@ export default function Footer() {
       <div className="relative w-full max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10 py-14 md:py-16">
 
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.85fr_1.2fr] gap-x-10 xl:gap-x-14 gap-y-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.85fr_1.2fr] gap-x-10 xl:gap-x-14 gap-y-10 items-start">
 
           {/* Company Information */}
-
           <div className="w-full max-w-sm">
             <a
               href="/"
               onClick={(e) => handleLinkClick(e, '/')}
-              className="inline-flex items-center gap-3 mb-7 group"
+              className="inline-flex items-center gap-3 mb-5 group"
             >
               <div className="relative w-[82px] h-[82px] shrink-0 flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-blue-500/15 blur-2xl" />
@@ -119,7 +122,8 @@ export default function Footer() {
             <ul className={listClass}>
               {footerData.services.map((service) => (
                 <li key={service}>
-                  <span className="text-sm text-slate-300 hover:text-white transition-colors">       {service}
+                  <span className="text-sm text-slate-300 hover:text-white transition-colors">
+                    {service}
                   </span>
                 </li>
               ))}
@@ -150,7 +154,7 @@ export default function Footer() {
           <div className="w-full min-w-0">
             <h4 className={headingClass}>Contact Us</h4>
 
-            <ul className="space-y-5">
+            <ul className="space-y-4">
               <li>
                 <a
                   href={MAILTO_URL}
@@ -181,7 +185,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-14 pt-7 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5">
 
           <p className="text-sm text-slate-400 text-center md:text-left">
             © {companyInfo.year} {companyInfo.name}. All rights reserved.

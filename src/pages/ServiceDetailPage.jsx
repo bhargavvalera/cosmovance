@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SectionWrapper from '../components/common/SectionWrapper';
 import GradientText from '../components/common/GradientText';
 import { serviceDetails } from '../data/serviceDetails';
+import { companyInfo } from '../data/navigation';
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
@@ -160,19 +161,64 @@ export default function ServiceDetailPage() {
       </SectionWrapper>
 
       {/* CTA */}
+
+      {/* CTA */}
       <section className="px-5 pb-20 sm:px-8 sm:pb-24 lg:px-10">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#0B0F24] px-7 py-14 text-center shadow-2xl shadow-blue-950/10 sm:px-12 sm:py-16">
+
+          {/* Background Glow */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(59,130,246,0.25),transparent_35%),radial-gradient(circle_at_85%_80%,rgba(167,139,250,0.22),transparent_35%)]" />
+
           <div className="relative mx-auto max-w-3xl">
-            <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#60A5FA]">Let's Build Together</span>
-            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">Ready to start your {service.title.toLowerCase()} project?</h2>
-            <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-300">Tell us what you are planning. We will help you explore the right approach for your goals.</p>
-            <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-7 py-4 text-sm font-bold text-[#0B0F24] transition hover:-translate-y-0.5 hover:bg-[#F5F8FF]">
-              Discuss Your Project <ArrowRight className="h-4 w-4" />
-            </Link>
+
+            {/* Small Heading */}
+            <span
+              className="text-xs font-bold uppercase tracking-[0.18em]"
+              style={{ color: '#60A5FA', WebkitTextFillColor: '#60A5FA' }}
+            >
+              Let's Build Together
+            </span>
+
+            {/* Main Heading */}
+            <h2
+              className="mt-4 text-3xl font-bold sm:text-4xl"
+              style={{
+                color: '#FFFFFF',
+                WebkitTextFillColor: '#FFFFFF',
+                opacity: 1,
+              }}
+            >
+              Ready to start your {service.title.toLowerCase()} project?
+            </h2>
+
+            {/* Description */}
+            <p
+              className="mx-auto mt-5 max-w-2xl leading-7"
+              style={{
+                color: '#CBD5E1',
+                WebkitTextFillColor: '#CBD5E1',
+                opacity: 1,
+              }}
+            >
+              Tell us what you are planning. We will help you explore the right approach for your goals.
+            </p>
+
+            {/* CTA Button */}
+            <a
+              href={`mailto:${companyInfo.email}?subject=${encodeURIComponent(
+                `Project Inquiry - ${service.title}`
+              )}&body=${encodeURIComponent(
+                `Hello Cosmovance Technologies,\n\nI am interested in your ${service.title} service.\n\nPlease share more details about the project.\n\nThank you.`
+              )}`}
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-7 py-4 text-sm font-bold text-[#0B0F24] transition hover:-translate-y-0.5 hover:bg-[#F5F8FF]"
+            >
+              Discuss Your Project
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
+
     </div>
   );
 }
