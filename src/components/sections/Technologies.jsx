@@ -1,24 +1,34 @@
+
 import SectionWrapper from '../common/SectionWrapper';
 import AnimatedElement from '../common/AnimatedElement';
 import SectionHeading from '../common/SectionHeading';
-import GlassCard from '../common/GlassCard';
 import GradientText from '../common/GradientText';
 import { technologies } from '../../data/siteData';
 
-/**
- * Technologies — responsive grid of tech-stack categories,
- * each item shown in a GlassCard with a colored indicator dot.
- */
+const fallbackColors = [
+  '#22D3EE',
+  '#3B82F6',
+  '#A78BFA',
+  '#0EA5E9',
+  '#10B981',
+  '#F97316',
+];
+
 export default function Technologies() {
   return (
-    <SectionWrapper id="technologies">
-      {/* Header */}
+    <SectionWrapper
+      id="technologies"
+      className="technologies-section"
+    >
+      {/* Section Heading */}
       <AnimatedElement animation="fade-up">
         <SectionHeading
-          badge="Tech Stack"
           title={
             <>
-              Technologies We <GradientText>Master</GradientText>
+              Technologies We{' '}
+              <span className="technology-master-text">
+                <GradientText>Master</GradientText>
+              </span>
             </>
           }
           description="We leverage modern, battle-tested tools and frameworks to deliver scalable, high-performance digital products."
@@ -26,41 +36,58 @@ export default function Technologies() {
         />
       </AnimatedElement>
 
-      {/* Category grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-14 md:mt-16">
-        {technologies.map((group, groupIndex) => (
+      {/* Technology Categories */}
+      <div className="technologies-grid">
+        {technologies.map((group, index) => (
           <AnimatedElement
             key={group.category}
             animation="fade-up"
-            delay={groupIndex * 0.1}
+            delay={index * 0.1}
           >
-            <div>
-              {/* Category label */}
-              <p className="text-text-dim text-xs uppercase tracking-wider font-medium mb-3">
-                {group.category}
-              </p>
+            <div className="technology-category">
 
-              {/* Tech items */}
-              <div className="flex flex-col gap-2">
-                {group.items.map((item) => (
-                  <GlassCard
-                    key={item.name}
-                    className="p-4"
-                    hover
-                  >
-                    <div className="flex items-center gap-3">
+              {/* Category Heading */}
+              <h3 className="technology-category-title">
+                {group.category}
+              </h3>
+
+              {/* Gradient Underline */}
+              <div className="technology-underline" />
+
+              {/* Technology List */}
+              <div className="technology-list">
+                {group.items.map((item, itemIndex) => {
+                  const dotColor =
+                    item.name === 'Next.js'
+                      ? '#3B82F6'
+                      : item.name === 'Express'
+                      ? '#10B981'
+                      : item.color ||
+                        fallbackColors[
+                          itemIndex % fallbackColors.length
+                        ];
+
+                  return (
+                    <div
+                      key={item.name}
+                      className="technology-item"
+                    >
+                      {/* Colored Dot */}
                       <span
-                        className="w-2 h-2 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: item.color }}
+                        className="technology-dot"
+                        style={{ backgroundColor: dotColor }}
                         aria-hidden="true"
                       />
-                      <span className="text-sm font-medium text-white/80">
+
+                      {/* Technology Name */}
+                      <span className="technology-name">
                         {item.name}
                       </span>
                     </div>
-                  </GlassCard>
-                ))}
+                  );
+                })}
               </div>
+
             </div>
           </AnimatedElement>
         ))}

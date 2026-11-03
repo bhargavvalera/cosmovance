@@ -113,7 +113,7 @@ export default function Navbar() {
           <a
             href={MAILTO_URL}
             onClick={closeMobile}
-            className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-white bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#A855F7] rounded-full hover:brightness-110 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_28px_rgba(139,92,246,0.55)] group overflow-hidden"
+            className="desktop-contact-btn relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-white bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#A855F7] rounded-full hover:brightness-110 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_28px_rgba(139,92,246,0.55)] group overflow-hidden"
           >
             <span>Contact Us</span>
             <ArrowRight className="w-5 h-5 text-white" />
@@ -225,7 +225,7 @@ export default function Navbar() {
               <a
                 href={MAILTO_URL}
                 onClick={closeMobile}
-                className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-[#0B0F24] bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] group overflow-hidden"
+                className="mobile-menu-contact-btn relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 group overflow-hidden"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-5 h-5" />

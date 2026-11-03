@@ -199,33 +199,58 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
+
+        {/* Bottom Footer */}
         <div className="mt-14 pt-7 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
 
-          <p className="text-sm text-slate-400 text-center md:text-left">
+          {/* Social Media Links - Left Side */}
+          <div className="flex flex-wrap justify-center items-center gap-7 order-1">
+            {footerData.social
+              .filter((social) => social.label.toLowerCase() !== 'github')
+              .map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-[#60A5FA] transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span className="transition-all duration-300 group-hover:scale-110 group-hover:text-[#A78BFA]">
+                    <SocialIcon label={social.label} />
+                  </span>
+                  <span>{social.label}</span>
+                </a>
+              ))}
+
+            {/* Instagram */}
+            {!footerData.social.some(
+              (social) => social.label.toLowerCase() === 'instagram'
+            ) && (
+
+                <a
+                  href="https://www.instagram.com/cosmovance_technologies/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-[#60A5FA] transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span className="transition-all duration-300 group-hover:scale-110 group-hover:text-[#A78BFA]">
+                    <SocialIcon label="Instagram" />
+                  </span>
+                  <span>Instagram</span>
+                </a>
+
+              )}
+          </div>
+
+          {/* Copyright - Right Side */}
+          <p className="text-sm text-slate-400 text-center md:text-right order-2">
             © {companyInfo.year} {companyInfo.name}. All rights reserved.
           </p>
 
-          {/* Social Media Links */}
-          <div className="flex flex-wrap justify-center items-center gap-7">
-            {footerData.social.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="group inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-[#60A5FA] transition-all duration-300 hover:-translate-y-1"
-              >
-                <span className="transition-all duration-300 group-hover:scale-110 group-hover:text-[#A78BFA]">
-                  <SocialIcon label={social.label} />
-                </span>
-
-                <span>{social.label}</span>
-              </a>
-            ))}
-          </div>
-
         </div>
+
       </div>
     </footer>
   );
