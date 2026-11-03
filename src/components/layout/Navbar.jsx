@@ -152,7 +152,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
+              className="mobile-nav-drawer lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
             >
               {/* Drawer Header */}
 
@@ -169,7 +169,7 @@ export default function Navbar() {
 
                   <div className="flex flex-col min-w-0 leading-tight">
                     <span
-                      className="font-sans font-extrabold text-lg tracking-tight"
+                      className="mobile-brand-name font-sans font-extrabold text-lg tracking-tight"
                       style={{
                         color: '#FFFFFF',
                         WebkitTextFillColor: '#FFFFFF',
@@ -180,7 +180,7 @@ export default function Navbar() {
                     >
                       COSMOVANCE
                     </span>
-                    <span className="font-sans font-semibold text-[10px] tracking-[0.22em] text-[#A78BFA] mt-1">
+                    <span className="mobile-brand-subtitle font-sans font-semibold text-[10px] tracking-[0.22em] text-[#A78BFA] mt-1">
                       TECHNOLOGIES
                     </span>
                   </div>

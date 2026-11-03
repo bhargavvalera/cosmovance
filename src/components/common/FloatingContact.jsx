@@ -1,5 +1,5 @@
 
-import { Phone, ArrowUpRight } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
@@ -21,7 +21,7 @@ export default function FloatingContact() {
   };
 
   return (
-    <div className="fixed bottom-7 right-5 z-[9999] flex flex-col items-end gap-4">
+    <div className="floating-contact fixed bottom-7 right-5 z-[9999] flex flex-col items-end gap-4">
 
       {/* WhatsApp Button */}
       <motion.a
