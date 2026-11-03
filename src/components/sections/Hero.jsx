@@ -212,23 +212,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Subtle Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-10 pointer-events-none"
-        aria-hidden="true"
-      >
-        <span className="text-text-dim text-[11px] tracking-widest uppercase font-medium">Scroll Down</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
-          className="w-5 h-8 rounded-full border border-white/20 flex justify-center pt-1.5"
-        >
-          <div className="w-1 h-2 rounded-full bg-primary-light" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
