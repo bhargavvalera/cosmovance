@@ -1,11 +1,10 @@
 
 import {
   Code2, Brain, Smartphone, Globe, Palette, Rocket, LayoutGrid, Zap,
-  ShieldCheck, Gauge, Layers3, Database, Workflow, Search, PenTool,
-  TestTube, CloudUpload, Users, Sparkles, MonitorSmartphone, LockKeyhole,
+  ShieldCheck, Gauge, Layers3, Database, Workflow, Search,
+  Users, Sparkles, MonitorSmartphone, LockKeyhole,
   ShoppingCart, RefreshCw,
 } from 'lucide-react';
-
 export const serviceDetails = [
   {
     slug: 'business-consultant',

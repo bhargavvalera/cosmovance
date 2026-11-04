@@ -16,12 +16,11 @@ import {
   CodeXml,
   TestTube,
   CloudUpload,
-  MessageSquare,
   Mail,
   MapPin,
   Phone,
 } from 'lucide-react';
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 /* ============================================================
    SERVICES
    ============================================================ */
