@@ -16,3 +16,6 @@ Important SEO notes:
 Validation:
 - App.jsx and serviceDetails.js passed JavaScript/JSX syntax parsing.
 - Full Vite build could not be completed in this environment because the ZIP's node_modules is missing the platform-specific Rolldown native binding. On your computer run npm install, then npm run build.
+
+
+Correction: Removed the SmartSearch search bar component from the Navbar. SEO keywords are metadata/content terms, not a visible site search field.
