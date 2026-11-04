@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import { navLinks, companyInfo } from '../../data/navigation';
 import logo from '../../assets/cosmovance_technologies_icon.png';
+import SmartSearch from '../common/SmartSearch';
 
 const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
 
@@ -101,6 +102,11 @@ export default function Navbar() {
           ))}
         </nav>
 
+        {/* Smart Search: desktop */}
+        <div className="hidden xl:block shrink-0">
+          <SmartSearch />
+        </div>
+
         {/* Desktop Contact Button */}
         <div className="hidden lg:flex items-center shrink-0">
           <a
@@ -179,6 +185,11 @@ export default function Navbar() {
                 >
                   <X className="w-5 h-5" />
                 </button>
+              </div>
+
+              {/* Smart Search: mobile */}
+              <div className="w-full max-w-none">
+                <SmartSearch className="max-w-none" />
               </div>
 
               {/* Drawer Links */}

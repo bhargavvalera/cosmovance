@@ -1,0 +1,13 @@
+COSMOVANCE SEO UPDATE - DEPLOYMENT
+
+1. Keep a backup of your current project.
+2. Extract this ZIP and open the project folder in VS Code.
+3. Open terminal in the project root.
+4. Run: npm ci
+5. Run: npm run build
+6. Run: npm run lint
+7. If build succeeds, deploy the project to Netlify using your normal deployment process.
+8. Open https://cosmovance.com/robots.txt and https://cosmovance.com/sitemap.xml to verify.
+9. In Google Search Console, verify https://cosmovance.com/ and submit sitemap.xml.
+
+Read SEO_IMPLEMENTATION_REPORT.md for what was implemented and what still needs owner/account access.
