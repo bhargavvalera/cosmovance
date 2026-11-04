@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import { navLinks, companyInfo } from '../../data/navigation';
 import logo from '../../assets/cosmovance_technologies_icon.png';
+import SmartSearch from '../common/SmartSearch';
 
 const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
 
@@ -23,54 +24,47 @@ export default function Navbar() {
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
-  // Close mobile drawer on Escape key
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && mobileOpen) {
-        closeMobile();
-      }
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && mobileOpen) closeMobile();
     };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileOpen, closeMobile]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
   }, [mobileOpen]);
 
-  const handleNavClick = (e, link) => {
+  const handleNavClick = (event, link) => {
     if (link.isMailto) {
-      // Direct email action, let default anchor behavior open email client
       if (mobileOpen) closeMobile();
       return;
     }
 
-    e.preventDefault();
+    event.preventDefault();
     if (mobileOpen) closeMobile();
     navigate(link.href);
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? 'bg-[#0B0F24]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 lg:py-3.5 shadow-2xl shadow-black/50'
-        : 'bg-transparent py-3.5 sm:py-5'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#0B0F24]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 lg:py-3.5 shadow-2xl shadow-black/50'
+          : 'bg-transparent py-3.5 sm:py-5'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Brand Logo */}
         <a
           href="/"
-          onClick={(e) => handleNavClick(e, { href: '/', isMailto: false })}
-          className="flex items-center gap-3 group select-none"
+          onClick={(event) => handleNavClick(event, { href: '/', isMailto: false })}
+          className="flex items-center gap-3 group select-none shrink-0"
         >
           <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
             <img
@@ -94,13 +88,13 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 bg-white/[0.03] border border-white/[0.06] rounded-full px-6 py-2 backdrop-blur-md">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8 bg-white/[0.03] border border-white/[0.06] rounded-full px-4 xl:px-6 py-2 backdrop-blur-md">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link)}
-              className="text-sm font-medium text-[#64748B] hover:text-white transition-colors duration-200 relative py-1 group"
+              onClick={(event) => handleNavClick(event, link)}
+              className="text-sm font-medium text-[#64748B] hover:text-white transition-colors duration-200 relative py-1 group whitespace-nowrap"
             >
               {link.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
@@ -108,23 +102,28 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop Top-Right Action Button ("Contact Us" — High Contrast Pill Button) */}
-        <div className="hidden lg:flex items-center">
+        {/* Smart Search: desktop */}
+        <div className="hidden xl:block shrink-0">
+          <SmartSearch />
+        </div>
+
+        {/* Desktop Contact Button */}
+        <div className="hidden lg:flex items-center shrink-0">
           <a
             href={MAILTO_URL}
             onClick={closeMobile}
-            className="desktop-contact-btn relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold text-white bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#A855F7] rounded-full hover:brightness-110 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_28px_rgba(139,92,246,0.55)] group overflow-hidden"
+            className="desktop-contact-btn relative inline-flex items-center justify-center gap-2 px-5 xl:px-8 py-2.5 min-w-[140px] text-sm font-semibold text-white bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#A855F7] rounded-full hover:brightness-110 active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_28px_rgba(139,92,246,0.55)] group overflow-hidden"
           >
             <span>Contact Us</span>
             <ArrowRight className="w-5 h-5 text-white" />
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle Button */}
+        {/* Mobile Hamburger */}
         <button
           type="button"
           className="lg:hidden p-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-[#E2E8F0] hover:text-white hover:bg-white/10 active:scale-95 transition-all"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen((open) => !open)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >
@@ -136,7 +135,6 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -146,25 +144,18 @@ export default function Navbar() {
               aria-hidden="true"
             />
 
-            {/* Slide-in Drawer Container */}
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="mobile-nav-drawer lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6"
+              className="mobile-nav-drawer lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#0B0F24] border-b border-white/15 px-6 pt-5 pb-8 shadow-2xl flex flex-col gap-6 max-h-[90vh] overflow-y-auto"
             >
-              {/* Drawer Header */}
-
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="w-11 h-11 shrink-0 rounded-xl bg-white p-1 flex items-center justify-center shadow-[0_0_18px_rgba(139,92,246,0.2)]">
-                    <img
-                      src={logo}
-                      alt={companyInfo.name}
-                      className="w-full h-full object-contain"
-                    />
+                    <img src={logo} alt={companyInfo.name} className="w-full h-full object-contain" />
                   </div>
 
                   <div className="flex flex-col min-w-0 leading-tight">
@@ -196,22 +187,24 @@ export default function Navbar() {
                 </button>
               </div>
 
+              {/* Smart Search: mobile */}
+              <div className="w-full max-w-none">
+                <SmartSearch className="max-w-none" />
+              </div>
 
-              {/* Drawer Links List: Home, Services, Process, About, Contact */}
+              {/* Drawer Links */}
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, idx) => (
                   <motion.a
                     key={link.id}
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link)}
+                    onClick={(event) => handleNavClick(event, link)}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
                     className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.09] text-[#E2E8F0] hover:text-white font-medium text-base transition-all border border-white/[0.08]"
                   >
-                    <span style={{ color: '#E2E8F0' }}>
-                      {link.label}
-                    </span>
+                    <span style={{ color: '#E2E8F0' }}>{link.label}</span>
                     {link.isMailto ? (
                       <Mail className="w-4 h-4 text-accent" />
                     ) : (
@@ -221,11 +214,11 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Drawer CTA Button */}
+              {/* Drawer CTA */}
               <a
                 href={MAILTO_URL}
                 onClick={closeMobile}
-                className="mobile-menu-contact-btn relative inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 min-w-[140px] sm:min-w-[170px] lg:min-w-[190px] text-sm font-semibold bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 group overflow-hidden"
+                className="mobile-menu-contact-btn relative inline-flex items-center justify-center gap-2 px-6 py-2.5 min-w-[140px] text-sm font-semibold bg-white rounded-full hover:bg-[#F5F8FF] active:scale-95 transition-all duration-200 group overflow-hidden"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-5 h-5" />

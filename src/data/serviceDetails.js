@@ -1,15 +1,22 @@
+
 import {
   Code2, Brain, Smartphone, Globe, Palette, Rocket, LayoutGrid, Zap,
   ShieldCheck, Gauge, Layers3, Database, Workflow, Search, PenTool,
   TestTube, CloudUpload, Users, Sparkles, MonitorSmartphone, LockKeyhole,
+  ShoppingCart, RefreshCw,
 } from 'lucide-react';
 
 export const serviceDetails = [
   {
     slug: 'business-consultant',
     title: 'Business Consultant',
+    seoTitle: 'Business Consulting Services for Startups | Cosmovance',
+    seoDescription: 'Get practical business consulting for strategy, operations, process improvement and digital growth.',
+    primaryKeyword: 'Business Consulting Services',
+    secondaryKeywords: ['Business Consultant', 'Business Consulting for Startups', 'Digital Business Strategy'],
     eyebrow: 'Clear strategy for confident business decisions',
-    description: 'Practical business consulting to clarify goals, improve operations, and turn growth opportunities into an actionable roadmap.',
+    description:
+      'Business consulting services to help startups and companies clarify goals, improve operations, identify growth opportunities, and create practical digital business strategies.',
     intro: 'We help you understand business challenges, identify opportunities, and prioritize practical steps across operations, customer experience, and digital growth.',
     outcome: 'A clearer direction, prioritized initiatives, and an actionable plan connected to your business goals.',
     icon: Users,
@@ -29,8 +36,13 @@ export const serviceDetails = [
   {
     slug: 'custom-software',
     title: 'Custom Software Development',
+    seoTitle: 'Custom Software Development Company | Cosmovance',
+    seoDescription: 'Build tailored business software, workflow systems and scalable digital platforms with custom software development services.',
+    primaryKeyword: 'Custom Software Development Company',
+    secondaryKeywords: ['Custom Software Development Services', 'Software Development Agency', 'Business Software Development', 'Software Development Company in India', 'Custom Software Development Company'],
     eyebrow: 'Software built around your business',
-    description: 'Tailored software solutions engineered to solve your unique business challenges with scalable, maintainable architecture.',
+    description:
+      'Custom software development services for businesses that need scalable applications, business management systems, enterprise platforms, workflow solutions, and tailored digital products.',
     intro: 'Your business should not have to adapt to off-the-shelf software. We plan and build custom digital systems around your workflows, users, and long-term goals.',
     outcome: 'A dependable software foundation that fits the way your business works today and can grow with tomorrow.',
     icon: Code2,
@@ -43,6 +55,9 @@ export const serviceDetails = [
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'REST APIs', 'Cloud'],
     process: ['Understand your business requirements', 'Plan architecture and user experience', 'Build and integrate the solution', 'Test, launch, and support'],
     faqs: [
+      ['Can you build custom software for my business?', 'Yes. We scope custom software development around your workflows, users, integrations, security needs and growth plans.'],
+      ['Do you work as a software development agency for startups?', 'We can help startups plan and build a focused software product, with scope and milestones agreed before development.'],
+      
       ['Can you build software for our specific workflow?', 'Yes. The solution is scoped around your business requirements, users, and existing processes.'],
       ['Can the software be expanded later?', 'We plan modular architecture so new features and integrations can be added as your needs evolve.'],
     ],
@@ -50,8 +65,13 @@ export const serviceDetails = [
   {
     slug: 'ai-solutions',
     title: 'AI Solutions',
+    seoTitle: 'AI Development & Chatbot Solutions Company | Cosmovance',
+    seoDescription: 'Explore AI development, AI chatbot development, OpenAI integrations and intelligent business automation solutions.',
+    primaryKeyword: 'AI Development Services',
+    secondaryKeywords: ['AI Chatbot Development Company', 'AI Chatbot Development Services', 'AI Development Services', 'OpenAI Integration', 'AI chatbot for business'],
     eyebrow: 'Make your products and processes more intelligent',
-    description: 'Intelligent systems powered by machine learning and AI that automate workflows, predict outcomes, and drive smarter decisions.',
+    description:
+      'AI development services including AI chatbot development, OpenAI integrations, intelligent assistants, machine learning solutions, and business workflow automation.',
     intro: 'Bring practical AI into your business with solutions focused on useful outcomes: faster workflows, easier access to information, and better-informed decisions.',
     outcome: 'AI capabilities designed around a real business problem—not technology for its own sake.',
     icon: Brain,
@@ -64,6 +84,8 @@ export const serviceDetails = [
     technologies: ['Python', 'OpenAI APIs', 'Machine Learning', 'Node.js', 'Vector Search', 'Cloud'],
     process: ['Identify the right AI use case', 'Prepare data and define solution scope', 'Build and integrate AI capabilities', 'Evaluate, deploy, and improve'],
     faqs: [
+      ['Can you build an AI chatbot for my business?', 'Yes. AI chatbot development can be scoped around your support content, customer journeys, integrations and handoff requirements.'],
+      
       ['Do we need a large dataset to start?', 'Not always. The right approach depends on the use case; we assess available data and suitable AI services first.'],
       ['Can AI connect to our existing application?', 'Yes. AI features can be integrated into existing web applications and business workflows where appropriate.'],
     ],
@@ -71,8 +93,13 @@ export const serviceDetails = [
   {
     slug: 'mobile-app-development',
     title: 'Mobile App Development',
-    eyebrow: 'Beautiful mobile experiences for every user.',
-    description: 'Beautiful, natively compiled mobile applications for iOS and Android from a single codebase, delivered fast.',
+    seoTitle: 'Mobile App Development Company | Android & iOS | Cosmovance',
+    seoDescription: 'Build Android and iOS applications with mobile app development services for businesses and startups.',
+    primaryKeyword: 'Mobile App Development Company',
+    secondaryKeywords: ['Mobile App Development Services', 'Android App Development', 'iOS App Development', 'Mobile App Development Company in India'],
+    eyebrow: 'Beautiful mobile experiences for every user',
+    description:
+      'Mobile app development services for businesses and startups, creating cross-platform Android and iOS applications with Flutter, Firebase, API integrations, and responsive user experiences.',
     intro: 'Create a consistent mobile experience across iOS and Android with clear user journeys, maintainable code, and reliable integrations.',
     outcome: 'A polished cross-platform app that is ready to evolve with your users and product roadmap.',
     icon: Smartphone,
@@ -85,6 +112,8 @@ export const serviceDetails = [
     technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'Node.js', 'App Store / Play Store'],
     process: ['Define app goals and user flows', 'Design screens and interactions', 'Develop and integrate features', 'Test and prepare store releases'],
     faqs: [
+      ['Can I hire a mobile app development team for Android and iOS?', 'Contact us with your app idea, target platforms and required features so we can discuss a suitable development scope.'],
+      
       ['Can one mobile app support iOS and Android?', 'Yes. We choose an appropriate development approach to support both platforms, including shared-codebase options where suitable.'],
       ['Can you connect the app to our existing backend?', 'Yes. We can integrate APIs and services based on your backend architecture.'],
     ],
@@ -92,8 +121,13 @@ export const serviceDetails = [
   {
     slug: 'web-development',
     title: 'Web Development',
+    seoTitle: 'Website Development Company for Businesses | Cosmovance',
+    seoDescription: 'Need a business website? Explore professional website development services for startups and businesses, including responsive and custom websites.',
+    primaryKeyword: 'Website Development Company',
+    secondaryKeywords: ['Business Website Development', 'Custom Website Development Services', 'Professional Website Design Services', 'Affordable Website Development', 'Website Development Company in Surat', 'Website Development Cost', 'Website Development Agency for Startups', 'Hire Web Developers'],
     eyebrow: 'Fast, responsive web experiences for your business',
-    description: 'High-performance web applications built with React, optimized for speed, SEO, and exceptional user experiences.',
+    description:
+      'Professional website development services for startups and businesses, including responsive business websites, custom web development, React and Next.js websites, web applications, and SEO-friendly website solutions.',
     intro: 'We create modern websites and web applications that are easy to use, responsive across devices, and structured for ongoing product growth.',
     outcome: 'A web experience that makes your product easier to discover, understand, and use.',
     icon: Globe,
@@ -106,15 +140,83 @@ export const serviceDetails = [
     technologies: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'REST APIs'],
     process: ['Plan content and user journeys', 'Create the visual interface', 'Build responsive React components', 'Test, optimize, and launch'],
     faqs: [
+      ['How much does website development cost?', 'Website development cost depends on the number of pages, design requirements, features, integrations, content and ongoing support. Share your requirements for a project-specific estimate.'],
+      ['Can I hire web developers for a business website?', 'Yes. Contact Cosmovance with your goals, required pages, functionality and timeline to discuss the right website development approach.'],
+      ['Do you build affordable websites for startups?', 'We can discuss a practical scope for startups and small businesses, prioritizing the pages and features needed for launch.'],
+      
+      ['Can you build a business website?', 'Yes. We can develop responsive business websites based on your brand, audience, and business goals.'],
       ['Can you redesign an existing website?', 'Yes. We can review the current experience and plan a redesign while preserving required content and functionality.'],
       ['Will the website work on mobile?', 'Responsive behavior is part of the design and development process.'],
     ],
   },
   {
+    slug: 'ecommerce-development',
+    title: 'E-commerce Website Development',
+    seoTitle: 'E-commerce Website Development Company | Cosmovance',
+    seoDescription: 'Launch an online store with e-commerce website development, product catalogs, shopping carts, payment gateway integration and order management.',
+    primaryKeyword: 'E-commerce Website Development',
+    secondaryKeywords: ['E-commerce Development Services', 'Online Store Development', 'Online Shopping Website Development', 'E-commerce Website Development', 'Affordable online store development'],
+    eyebrow: 'Turn your products into online shopping experiences',
+    description:
+      'E-commerce website development services for businesses and online stores. Build responsive online shopping websites with product catalogs, shopping carts, secure payment gateway integrations, and order management features.',
+    intro: 'We create online store experiences that help businesses showcase products, manage shopping journeys, and make it easier for customers to browse and purchase online.',
+    outcome: 'A user-friendly online store designed around your products, customers, and business requirements.',
+    icon: ShoppingCart,
+    features: [
+      { icon: LayoutGrid, title: 'Product catalog', text: 'Organize products, categories, images, and product details.' },
+      { icon: ShoppingCart, title: 'Shopping cart', text: 'Create clear cart and checkout journeys for customers.' },
+      { icon: LockKeyhole, title: 'Payment integration', text: 'Connect supported payment gateways based on your business requirements.' },
+      { icon: Database, title: 'Order management', text: 'Manage orders and customer information through your store workflows.' },
+    ],
+    technologies: ['React', 'Next.js', 'Node.js', 'MongoDB', 'REST APIs', 'Payment Gateway Integration'],
+    process: ['Understand products and store requirements', 'Plan catalog and shopping experience', 'Develop store and integrate payments', 'Test checkout and prepare launch'],
+    faqs: [
+      ['Can you build an online store for my business?', 'Yes. We plan online store development around your products, catalog, checkout, payment options and order management needs.'],
+      
+      ['Can you build an online store for my business?', 'Yes. We can create an online shopping website based on your products, brand, and business requirements.'],
+      ['Can customers pay online?', 'Supported payment gateway integrations can be included based on your location and business requirements.'],
+      ['Can I manage products and orders?', 'Product and order management features can be planned as part of your store requirements.'],
+    ],
+  },
+  {
+    slug: 'website-redesign',
+    title: 'Website Redesign Services',
+    seoTitle: 'Website Redesign Services for Businesses | Cosmovance',
+    seoDescription: 'Refresh your existing website with professional website redesign services, modern UI/UX, responsive layouts and performance improvements.',
+    primaryKeyword: 'Website Redesign Services',
+    secondaryKeywords: ['Website Redesign Services', 'Website Redesign Company', 'Professional Website Designer', 'Professional Website Design Services'],
+    eyebrow: 'Give your existing website a better digital experience',
+    description:
+      'Professional website redesign services to modernize outdated websites, improve responsive layouts, refresh UI/UX design, enhance website performance, and create better user experiences.',
+    intro: 'An existing website can be improved without losing sight of your brand. We review your current website and plan design and functionality improvements around your business goals.',
+    outcome: 'A refreshed, responsive website experience with a clearer structure and modern visual design.',
+    icon: RefreshCw,
+    features: [
+      { icon: Search, title: 'Website review', text: 'Review existing layouts, navigation, content, and user experience.' },
+      { icon: Palette, title: 'Modern UI/UX', text: 'Refresh visual design, typography, spacing, and page layouts.' },
+      { icon: MonitorSmartphone, title: 'Responsive redesign', text: 'Improve usability across desktop, tablet, and mobile devices.' },
+      { icon: Gauge, title: 'Performance improvements', text: 'Identify opportunities to improve loading and interaction performance.' },
+    ],
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'JavaScript', 'Figma', 'SEO'],
+    process: ['Review the current website', 'Plan design and content improvements', 'Redesign and develop updated pages', 'Test responsiveness and launch updates'],
+    faqs: [
+      ['Can you redesign my existing business website?', 'Yes. Website redesign services can improve the visual design, mobile experience, navigation, content structure and performance while considering existing URLs and SEO needs.'],
+      
+      ['Can you redesign my existing business website?', 'Yes. We can review your current website and plan a modern redesign based on your business goals.'],
+      ['Will my existing content be preserved?', 'Required content and functionality can be retained as part of the redesign scope.'],
+      ['Can you improve the mobile experience?', 'Yes. Responsive layouts and mobile usability are included in the redesign planning.'],
+    ],
+  },
+  {
     slug: 'ui-ux-design',
     title: 'UI/UX Design',
+    seoTitle: 'Professional UI/UX Design Services | Cosmovance',
+    seoDescription: 'Improve digital experiences with UI/UX design services for websites, mobile apps and digital products, including wireframes and design systems.',
+    primaryKeyword: 'UI/UX Design Services',
+    secondaryKeywords: ['Professional Website Design Services', 'UI UX Design Services', 'Website Design Agency', 'Professional website designer'],
     eyebrow: 'Thoughtful experiences, down to every detail',
-    description: 'Research-driven design that balances aesthetics with usability. Every pixel serves a purpose in the user journey.',
+    description:
+      'Professional UI/UX design services for websites, mobile applications, and digital products. Create intuitive user journeys, modern interfaces, wireframes, and reusable design systems.',
     intro: 'Great design is more than appearance. We shape clear user journeys and polished interfaces that help people understand and use your product confidently.',
     outcome: 'A cohesive design direction and interface system your users can navigate with ease.',
     icon: Palette,
@@ -134,8 +236,13 @@ export const serviceDetails = [
   {
     slug: 'saas-mvp',
     title: 'SaaS MVP Development',
+    seoTitle: 'SaaS MVP Development for Startups | Cosmovance',
+    seoDescription: 'Turn your startup idea into a focused SaaS MVP with product planning, essential features, authentication and scalable application foundations.',
+    primaryKeyword: 'SaaS MVP Development',
+    secondaryKeywords: ['Startup Website Development', 'SaaS Development Services', 'Website Development Agency for Startups', 'Affordable Website Development'],
     eyebrow: 'Validate your idea and launch with confidence',
-    description: 'Launch your SaaS product faster with our rapid MVP development. From concept to market in weeks, not months.',
+    description:
+      'SaaS MVP development services for startups and founders. Build a minimum viable product with essential features, user authentication, scalable architecture, and a foundation for future growth.',
     intro: 'Focus on the essential product experience first. We help shape an MVP scope, build the core workflows, and create a foundation for learning from real users.',
     outcome: 'A focused first version that helps you test assumptions and plan the next stage of your product.',
     icon: Rocket,
@@ -155,8 +262,13 @@ export const serviceDetails = [
   {
     slug: 'web-applications',
     title: 'Web Applications',
+    seoTitle: 'Custom Web Application Development Company | Cosmovance',
+    seoDescription: 'Build custom web applications, customer portals, admin dashboards and business platforms with tailored web application development services.',
+    primaryKeyword: 'Web Application Development',
+    secondaryKeywords: ['Custom Web Application Development', 'Enterprise Web Applications', 'Web Application Development Services', 'Custom Website Development Services'],
     eyebrow: 'Powerful applications for complex workflows',
-    description: 'Enterprise-grade web applications with real-time features, complex data flows, and seamless third-party integrations.',
+    description:
+      'Custom web application development services for businesses, including customer portals, admin dashboards, enterprise web platforms, real-time features, and third-party API integrations.',
     intro: 'From customer portals to internal platforms, we build web applications that bring information, teams, and workflows together in one accessible experience.',
     outcome: 'A secure, maintainable application that supports your users and operational needs.',
     icon: LayoutGrid,
@@ -176,8 +288,13 @@ export const serviceDetails = [
   {
     slug: 'business-automation',
     title: 'Business Automation',
+    seoTitle: 'Business Process Automation Services | Cosmovance',
+    seoDescription: 'Streamline repetitive work with business process automation, workflow integrations, API connections and practical AI-assisted automation solutions.',
+    primaryKeyword: 'Business Process Automation',
+    secondaryKeywords: ['Business Automation Services', 'Workflow Automation', 'AI Business Automation'],
     eyebrow: 'Spend less time on repetitive work',
-    description: 'Streamline operations with intelligent automation. Reduce manual work, minimize errors, and scale efficiently.',
+    description:
+      'Business process automation services to connect tools, streamline workflows, reduce repetitive manual tasks, and introduce AI-assisted automation where it provides practical value.',
     intro: 'Connect tools and automate repetitive business tasks so your team can spend more time on work that needs human attention.',
     outcome: 'Clearer workflows, fewer repetitive steps, and better visibility into day-to-day operations.',
     icon: Zap,
