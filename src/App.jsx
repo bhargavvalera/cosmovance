@@ -1,15 +1,21 @@
 
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { AnimatePresence, motion, useScroll, useSpring, MotionConfig } from 'framer-motion';
+import { useEffect, lazy, Suspense } from 'react';
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useSpring,
+  MotionConfig,
+} from 'framer-motion';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingContact from './components/common/FloatingContact';
 
-import { lazy, Suspense } from 'react';
+import { serviceDetails } from './data/serviceDetails';
 
-// Keep route modules out of the initial bundle until the visitor opens that route.
+// Lazy-loaded pages
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ProcessPage = lazy(() => import('./pages/ProcessPage'));
@@ -17,33 +23,43 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
-
-import { serviceDetails } from './data/serviceDetails';
 
 const SITE_URL = 'https://cosmovance.com';
 const BRAND = 'Cosmovance Technologies';
 const DEFAULT_IMAGE = `${SITE_URL}/cosmovance_technologies_icon.webp`;
 
+// Organization Schema
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: BRAND,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/cosmo_logo.webp`,
-  description: 'Website development, custom software, e-commerce, mobile application and AI development services.',
+  description:
+    'Software development, custom software, e-commerce, mobile application and AI development services.',
   email: 'founder@cosmovance.com',
-  areaServed: { '@type': 'Country', name: 'India' },
+  areaServed: {
+    '@type': 'Country',
+    name: 'India',
+  },
 };
 
+// Website Schema
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: BRAND,
   url: `${SITE_URL}/`,
-  publisher: { '@type': 'Organization', name: BRAND },
+  publisher: {
+    '@type': 'Organization',
+    name: BRAND,
+  },
 };
 
+// Page SEO Data
 const pageSEO = {
   '/': {
     title: 'Software Development Company | Cosmovance Technologies',
@@ -64,13 +80,13 @@ const pageSEO = {
   },
 
   '/about': {
-    title: 'About Cosmovance Technologies | Website & Software Developers',
+    title: 'About Cosmovance Technologies | Software Development Company',
     description:
       'Learn about Cosmovance Technologies, our development approach, technical expertise and commitment to building intelligent digital experiences.',
   },
 
   '/portfolio': {
-    title: 'Website & Software Development Portfolio | Cosmovance',
+    title: 'Software Development Portfolio | Cosmovance Technologies',
     description:
       'Explore web applications, mobile app projects, SaaS platforms and digital product solutions from Cosmovance Technologies.',
   },
@@ -80,8 +96,21 @@ const pageSEO = {
     description:
       'Looking to build custom software, web applications, mobile apps or AI-powered solutions? Contact Cosmovance Technologies to discuss your project and development requirements.',
   },
+
+  '/privacy-policy': {
+    title: 'Privacy Policy | Cosmovance Technologies',
+    description:
+      'Read how Cosmovance Technologies collects, uses and protects personal information when you visit our website or use our services.',
+  },
+
+  '/terms-and-conditions': {
+    title: 'Terms & Conditions | Cosmovance Technologies',
+    description:
+      'Review the terms and conditions for using the Cosmovance Technologies website and software development services.',
+  },
 };
 
+// Update Meta Tags
 function updateMeta(name, content, attribute = 'name') {
   if (!content) return;
 
@@ -98,29 +127,41 @@ function updateMeta(name, content, attribute = 'name') {
   element.setAttribute('content', content);
 }
 
+// Update JSON-LD Schema
 function setJsonLd(id, data) {
-  let script = document.head.querySelector(`script[data-seo-schema="${id}"]`);
+  let script = document.head.querySelector(
+    `script[data-seo-schema="${id}"]`
+  );
+
   if (!data) {
     script?.remove();
     return;
   }
+
   if (!script) {
     script = document.createElement('script');
     script.type = 'application/ld+json';
     script.dataset.seoSchema = id;
     document.head.appendChild(script);
   }
+
   script.textContent = JSON.stringify(data);
 }
 
+// SEO Handler
 function updateSEO(pathname) {
-  const normalizedPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
+  const normalizedPath =
+    pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
+
   let currentPage = pageSEO[normalizedPath];
   let service = null;
 
   if (normalizedPath.startsWith('/services/')) {
     const slug = normalizedPath.split('/').filter(Boolean).pop();
-    service = serviceDetails.find((item) => item.slug === slug) || null;
+
+    service =
+      serviceDetails.find((item) => item.slug === slug) || null;
+
     if (service) {
       currentPage = {
         title: service.seoTitle || `${service.title} | ${BRAND}`,
@@ -130,16 +171,26 @@ function updateSEO(pathname) {
   }
 
   const isNotFound = !currentPage && !service && normalizedPath !== '/';
+
   currentPage ||= {
-    title: 'Website Development Company in India | Cosmovance Technologies',
-    description: 'Professional website development, business websites, e-commerce, custom software, mobile apps and AI solutions from Cosmovance Technologies.',
+    title: 'Software Development Company | Cosmovance Technologies',
+    description:
+      'Custom software, web applications, e-commerce, mobile apps and AI solutions from Cosmovance Technologies.',
   };
 
   const canonicalURL = `${SITE_URL}${normalizedPath}`;
+
   document.title = currentPage.title;
+
   updateMeta('description', currentPage.description);
-  updateMeta('robots', isNotFound ? 'noindex, follow' : 'index, follow, max-image-preview:large');
+  updateMeta(
+    'robots',
+    isNotFound
+      ? 'noindex, follow'
+      : 'index, follow, max-image-preview:large'
+  );
   updateMeta('author', BRAND);
+
   updateMeta('og:type', 'website', 'property');
   updateMeta('og:title', currentPage.title, 'property');
   updateMeta('og:description', currentPage.description, 'property');
@@ -147,60 +198,119 @@ function updateSEO(pathname) {
   updateMeta('og:site_name', BRAND, 'property');
   updateMeta('og:image', DEFAULT_IMAGE, 'property');
   updateMeta('og:image:alt', `${BRAND} logo`, 'property');
+
   updateMeta('twitter:card', 'summary_large_image');
   updateMeta('twitter:title', currentPage.title);
   updateMeta('twitter:description', currentPage.description);
   updateMeta('twitter:image', DEFAULT_IMAGE);
 
-  let canonical = document.head.querySelector('link[rel="canonical"]');
+  // Canonical URL
+  let canonical = document.head.querySelector(
+    'link[rel="canonical"]'
+  );
+
   if (!canonical) {
     canonical = document.createElement('link');
     canonical.rel = 'canonical';
     document.head.appendChild(canonical);
   }
+
   canonical.href = canonicalURL;
 
+  // Global Schemas
   setJsonLd('organization', organizationSchema);
   setJsonLd('website', websiteSchema);
 
-  const pageName = service?.title || (normalizedPath === '/' ? 'Home' : normalizedPath.split('/').filter(Boolean).pop()?.replace(/-/g, ' '));
-  const pageSchema = isNotFound ? null : {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: currentPage.title,
-    description: currentPage.description,
-    url: canonicalURL,
-    isPartOf: { '@type': 'WebSite', name: BRAND, url: `${SITE_URL}/` },
-  };
+  const pageName =
+    service?.title ||
+    (normalizedPath === '/'
+      ? 'Home'
+      : normalizedPath
+          .split('/')
+          .filter(Boolean)
+          .pop()
+          ?.replace(/-/g, ' '));
+
+  // WebPage Schema
+  const pageSchema = isNotFound
+    ? null
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: currentPage.title,
+        description: currentPage.description,
+        url: canonicalURL,
+        isPartOf: {
+          '@type': 'WebSite',
+          name: BRAND,
+          url: `${SITE_URL}/`,
+        },
+      };
+
   setJsonLd('webpage', pageSchema);
 
-  const breadcrumbItems = [{ name: 'Home', url: `${SITE_URL}/` }];
+  // Breadcrumb Schema
+  const breadcrumbItems = [
+    {
+      name: 'Home',
+      url: `${SITE_URL}/`,
+    },
+  ];
+
   if (normalizedPath.startsWith('/services/')) {
-    breadcrumbItems.push({ name: 'Services', url: `${SITE_URL}/services` });
+    breadcrumbItems.push({
+      name: 'Services',
+      url: `${SITE_URL}/services`,
+    });
   }
-  if (normalizedPath !== '/') breadcrumbItems.push({ name: pageName, url: canonicalURL });
-  const breadcrumbSchema = isNotFound ? null : {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbItems.map((item, index) => ({
-      '@type': 'ListItem', position: index + 1, name: item.name, item: item.url,
-    })),
-  };
+
+  if (normalizedPath !== '/') {
+    breadcrumbItems.push({
+      name: pageName,
+      url: canonicalURL,
+    });
+  }
+
+  const breadcrumbSchema = isNotFound
+    ? null
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbItems.map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })),
+      };
+
   setJsonLd('breadcrumb', breadcrumbSchema);
 
-  const serviceSchema = service ? {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: service.title,
-    serviceType: service.primaryKeyword || service.title,
-    description: service.seoDescription || service.description,
-    url: canonicalURL,
-    provider: { '@type': 'Organization', name: BRAND, url: `${SITE_URL}/` },
-    areaServed: { '@type': 'Country', name: 'India' },
-  } : null;
+  // Service Schema
+  const serviceSchema = service
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: service.title,
+        serviceType: service.primaryKeyword || service.title,
+        description: service.seoDescription || service.description,
+        url: canonicalURL,
+        provider: {
+          '@type': 'Organization',
+          name: BRAND,
+          url: `${SITE_URL}/`,
+        },
+        areaServed: {
+          '@type': 'Country',
+          name: 'India',
+        },
+      }
+    : null;
+
   setJsonLd('service', serviceSchema);
 }
 
+// Scroll Progress
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
 
@@ -219,11 +329,15 @@ function ScrollProgress() {
   );
 }
 
+// Main Application Layout
 function AppLayout() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto',
+    });
 
     updateSEO(location.pathname);
   }, [location.pathname]);
@@ -245,15 +359,36 @@ function AppLayout() {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
-          <Suspense fallback={<div className="min-h-[60vh]" aria-label="Loading page" />}>
+          <Suspense
+            fallback={
+              <div
+                className="min-h-[60vh]"
+                aria-label="Loading page"
+              />
+            }
+          >
             <Routes location={location}>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
-              <Route path="/services/:slug" element={<ServiceDetailPage />} />
+              <Route
+                path="/services/:slug"
+                element={<ServiceDetailPage />}
+              />
               <Route path="/process" element={<ProcessPage />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+
+              {/* Legal Pages */}
+              <Route
+                path="/privacy-policy"
+                element={<PrivacyPolicy />}
+              />
+              <Route
+                path="/terms-and-conditions"
+                element={<TermsAndConditions />}
+              />
+
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
@@ -267,6 +402,7 @@ function AppLayout() {
   );
 }
 
+// App Entry Point
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
