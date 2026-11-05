@@ -3,7 +3,6 @@ import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { footerData } from '../../data/siteData';
 import { companyInfo } from '../../data/navigation';
-import logo from '../../assets/cosmovance_technologies_icon.png';
 
 // Social Media Icons
 function SocialIcon({ label }) {
@@ -101,10 +100,13 @@ export default function Footer() {
                 <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-2xl" />
 
                 <img
-                  src={logo}
+                  src="/cosmovance_technologies_icon.webp"
                   alt="Cosmovance Technologies"
+                  width="500"
+                  height="500"
+                  decoding="async"
+                  loading="lazy"
                   className="relative z-10 w-full h-full object-contain"
-                  loading="eager"
                 />
               </div>
 

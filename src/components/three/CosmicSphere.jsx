@@ -3,7 +3,8 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 // Generate particle positions ONCE at module load — outside component to satisfy React purity rules.
-const PARTICLE_COUNT = 800;
+const PARTICLE_COUNT = 480;
+const PREFERS_REDUCED_MOTION = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const _positions = new Float32Array(PARTICLE_COUNT * 3);
 for (let i = 0; i < PARTICLE_COUNT; i++) {
   const theta = Math.random() * Math.PI * 2;
@@ -33,6 +34,7 @@ export default function CosmicSphere({ mouseRef }) {
 
   // Animate per frame
   useFrame((state) => {
+    if (PREFERS_REDUCED_MOTION) return;
     const t = state.clock.getElapsedTime();
     const mouse = mouseRef?.current || { x: 0, y: 0 };
 
@@ -87,7 +89,7 @@ export default function CosmicSphere({ mouseRef }) {
 
       {/* Core sphere - subtle gradient */}
       <mesh>
-        <sphereGeometry args={[1.2, 64, 64]} />
+        <sphereGeometry args={[1.2, 40, 40]} />
         <meshStandardMaterial
           color="#1E1B4B"
           metalness={0.9}
@@ -143,7 +145,7 @@ export default function CosmicSphere({ mouseRef }) {
       {/* Orbital ring 1 */}
       <group ref={ring1Ref} rotation={[Math.PI / 2.5, 0, 0]}>
         <mesh>
-          <torusGeometry args={[2.2, 0.005, 16, 100]} />
+          <torusGeometry args={[2.2, 0.005, 10, 64]} />
           <meshBasicMaterial color="#3B82F6" transparent opacity={0.25} />
         </mesh>
         {/* Orbiting dot */}
@@ -156,7 +158,7 @@ export default function CosmicSphere({ mouseRef }) {
       {/* Orbital ring 2 */}
       <group ref={ring2Ref} rotation={[Math.PI / 1.8, Math.PI / 4, 0]}>
         <mesh>
-          <torusGeometry args={[2.5, 0.003, 16, 100]} />
+          <torusGeometry args={[2.5, 0.003, 10, 64]} />
           <meshBasicMaterial color="#A78BFA" transparent opacity={0.15} />
         </mesh>
         <mesh position={[2.5, 0, 0]}>
@@ -168,7 +170,7 @@ export default function CosmicSphere({ mouseRef }) {
       {/* Orbital ring 3 */}
       <group ref={ring3Ref} rotation={[Math.PI / 3, -Math.PI / 6, 0]}>
         <mesh>
-          <torusGeometry args={[2.8, 0.002, 16, 100]} />
+          <torusGeometry args={[2.8, 0.002, 10, 64]} />
           <meshBasicMaterial color="#22D3EE" transparent opacity={0.1} />
         </mesh>
         <mesh position={[2.8, 0, 0]}>

@@ -278,7 +278,7 @@ header .text-transparent {
   background-image: linear-gradient(90deg, #1E293B, #3B82F6, #A78BFA) !important
 }
 
-header .lg\\:fixed,
+header .lg\:fixed,
 header [class*="fixed top-0"] {
   background: #FFFFFF !important;
   color: #1E293B !important;
@@ -2084,5 +2084,22 @@ header .mobile-nav-drawer button svg {
   #process .process-step-card,
   #process .process-step-title {
     transition: none !important;
+  }
+}
+
+
+/* Respect system motion preferences without changing the visual design. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

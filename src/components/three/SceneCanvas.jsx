@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Preload } from '@react-three/drei';
 import CosmicSphere from './CosmicSphere';
 
 /**
@@ -11,11 +10,11 @@ export default function SceneCanvas({ mouseRef }) {
   return (
     <Canvas
       camera={{ position: [0, 0, 8.2], fov: 45 }}
-      dpr={[1, 2]}
+      dpr={[1, 1.25]}
       gl={{
         antialias: true,
         alpha: true,
-        powerPreference: 'high-performance',
+        powerPreference: 'low-power',
       }}
       style={{ background: 'transparent' }}
     >
@@ -56,7 +55,6 @@ export default function SceneCanvas({ mouseRef }) {
         />
 
         <CosmicSphere mouseRef={mouseRef} />
-        <Preload all />
       </Suspense>
     </Canvas>
   );

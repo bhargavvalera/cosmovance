@@ -1,7 +1,7 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, lazy, Suspense } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import SceneCanvas from '../three/SceneCanvas';
+const SceneCanvas = lazy(() => import('../three/SceneCanvas'));
 import { useMousePosition } from '../../hooks/useMousePosition';
 import { heroStats, companyInfo } from '../../data/navigation';
 import Button from '../common/Button';
@@ -47,6 +47,32 @@ function AnimatedCounter({ value, suffix = '', duration = 2 }) {
 export default function Hero() {
   const mouseRef = useMousePosition();
   const heroRef = useRef(null);
+  const sceneContainerRef = useRef(null);
+  const [shouldLoadScene, setShouldLoadScene] = useState(false);
+
+  // Defer the Three.js/R3F bundle until the hero visual is near the viewport.
+  useEffect(() => {
+    const node = sceneContainerRef.current;
+    if (!node) return;
+
+    if (!('IntersectionObserver' in window)) {
+      const frame = window.requestAnimationFrame(() => setShouldLoadScene(true));
+      return () => window.cancelAnimationFrame(frame);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadScene(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '160px 0px' }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
 
@@ -188,8 +214,14 @@ export default function Hero() {
             />
             
             {/* 3D R3F Sphere Canvas */}
-            <div className="w-full h-full relative z-10">
-              <SceneCanvas mouseRef={mouseRef} />
+            <div ref={sceneContainerRef} className="w-full h-full relative z-10">
+              {shouldLoadScene ? (
+                <Suspense fallback={<div className="h-full w-full rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.12),transparent_68%)]" />}>
+                  <SceneCanvas mouseRef={mouseRef} />
+                </Suspense>
+              ) : (
+                <div className="h-full w-full rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.12),transparent_68%)]" aria-hidden="true" />
+              )}
               <motion.div
                 animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}

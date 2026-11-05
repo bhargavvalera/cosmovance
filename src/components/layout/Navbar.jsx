@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import { navLinks, companyInfo } from '../../data/navigation';
-import logo from '../../assets/cosmovance_technologies_icon.png';
 import SmartSearch from '../common/SmartSearch';
 
 const MAILTO_URL = `mailto:${companyInfo.email}?subject=Project%20Inquiry%20%E2%80%94%20Cosmovance%20Technologies`;
@@ -68,8 +67,12 @@ export default function Navbar() {
         >
           <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
             <img
-              src={logo}
+              src="/cosmovance_technologies_icon.webp"
               alt={companyInfo.name}
+              width="500"
+              height="500"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-contain"
               style={{ imageRendering: 'auto' }}
               loading="eager"
@@ -155,7 +158,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="w-11 h-11 shrink-0 rounded-xl bg-white p-1 flex items-center justify-center shadow-[0_0_18px_rgba(139,92,246,0.2)]">
-                    <img src={logo} alt={companyInfo.name} className="w-full h-full object-contain" />
+                    <img src="/cosmovance_technologies_icon.webp" alt={companyInfo.name} width="500" height="500" decoding="async" className="w-full h-full object-contain" loading="lazy" />
                   </div>
 
                   <div className="flex flex-col min-w-0 leading-tight">
