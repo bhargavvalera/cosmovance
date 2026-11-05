@@ -60,7 +60,7 @@ export default function Footer() {
   const headingClass =
     "font-display text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-white";
 
-  // Heading underline with space below
+  // Heading underline
   const underlineClass =
     "mt-3 mb-7 h-[2px] w-full bg-gradient-to-r from-[#60A5FA] to-[#A78BFA]";
 
@@ -85,7 +85,7 @@ export default function Footer() {
       <div className="relative w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 py-14 md:py-16">
 
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.85fr_1.2fr] gap-x-10 xl:gap-x-14 gap-y-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.35fr_1fr_0.85fr_0.75fr_1.2fr] gap-x-10 xl:gap-x-12 gap-y-12 items-start">
 
           {/* Company Information */}
           <div className="w-full max-w-sm">
@@ -165,6 +165,36 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Legal */}
+          <div className="w-full min-w-0">
+            <h4 className={headingClass}>Legal</h4>
+            <div className={underlineClass} />
+
+            <ul className={listClass}>
+              <li>
+                <a
+                  href="/privacy-policy"
+                  onClick={(e) => handleLinkClick(e, '/privacy-policy')}
+                  className="inline-flex items-center gap-1 text-sm sm:text-base text-slate-300 hover:text-[#60A5FA] transition-colors group"
+                >
+                  Privacy Policy
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all" />
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="/terms-and-conditions"
+                  onClick={(e) => handleLinkClick(e, '/terms-and-conditions')}
+                  className="inline-flex items-center gap-1 text-sm sm:text-base text-slate-300 hover:text-[#60A5FA] transition-colors group"
+                >
+                  Terms & Conditions
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Contact Information */}
           <div className="w-full min-w-0">
             <h4 className={headingClass}>Contact Us</h4>
@@ -201,11 +231,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-
-        {/* Bottom Footer */}
         <div className="mt-14 pt-7 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
 
-          {/* Social Media Links - Left Side */}
+          {/* Social Media Links */}
           <div className="flex flex-wrap justify-center items-center gap-7 order-1">
             {footerData.social
               .filter((social) => social.label.toLowerCase() !== 'github')
@@ -225,28 +253,26 @@ export default function Footer() {
                 </a>
               ))}
 
-            {/* Instagram */}
+            {/* Instagram fallback */}
             {!footerData.social.some(
               (social) => social.label.toLowerCase() === 'instagram'
             ) && (
-
-                <a
-                  href="https://www.instagram.com/cosmovance_technologies/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="group inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-[#60A5FA] transition-all duration-300 hover:-translate-y-1"
-                >
-                  <span className="transition-all duration-300 group-hover:scale-110 group-hover:text-[#A78BFA]">
-                    <SocialIcon label="Instagram" />
-                  </span>
-                  <span>Instagram</span>
-                </a>
-
-              )}
+              <a
+                href="https://www.instagram.com/cosmovance_technologies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="group inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-[#60A5FA] transition-all duration-300 hover:-translate-y-1"
+              >
+                <span className="transition-all duration-300 group-hover:scale-110 group-hover:text-[#A78BFA]">
+                  <SocialIcon label="Instagram" />
+                </span>
+                <span>Instagram</span>
+              </a>
+            )}
           </div>
 
-          {/* Copyright - Right Side */}
+          {/* Copyright */}
           <p className="text-sm text-slate-400 text-center md:text-right order-2">
             © {companyInfo.year} {companyInfo.name}. All rights reserved.
           </p>
