@@ -1,0 +1,12 @@
+COSMOVANCE MULTI-PAGE ROUTES
+
+Home: /
+Services: /services
+Process: /process
+Portfolio: /portfolio
+About: /about
+FAQ: /faq
+Contact: /contact
+
+Navigation now uses React Router Links. Each route renders its own page composition, shared Navbar and Footer.
+Run npm install if needed, then npm run dev. For deployment, configure SPA fallback so unknown paths serve index.html.
