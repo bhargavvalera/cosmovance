@@ -46,15 +46,15 @@ const websiteSchema = {
 
 const pageSEO = {
   '/': {
-    title: 'Website Development Company in India | Cosmovance Technologies',
+    title: 'Software Development Company | Cosmovance Technologies',
     description:
-      'Need a business website? Cosmovance Technologies provides professional website design and development, e-commerce stores, custom software, mobile apps and AI solutions for businesses.',
+      'Cosmovance Technologies is a software development company delivering custom software, web applications, mobile apps, eCommerce solutions and AI-powered digital products for businesses.',
   },
 
-  '/services': {
-    title: 'Website Design & Development Services | Cosmovance Technologies',
-    description:
-      'Explore website development, business website design, e-commerce development, custom software, React web applications, mobile apps, AI solutions and UI/UX design services.',
+'/services': {
+  title: 'Software Development Services | Cosmovance Technologies',
+  description:
+    'Explore software development services by Cosmovance Technologies, including custom software, web applications, mobile app development, eCommerce solutions and AI-powered solutions.',
   },
 
   '/process': {
