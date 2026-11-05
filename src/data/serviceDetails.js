@@ -111,11 +111,11 @@ export const serviceDetails = [
     ],
   },
   {
-    slug: 'web-development',
+    seoTitle: 'Web Development Services | Cosmovance Technologies',
+    primaryKeyword: 'Web Development Services',
     title: 'Web Development',
     seoTitle: 'Website Development Company & Business Websites | Cosmovance',
     seoDescription: 'Need a website for your business or startup? Cosmovance builds responsive, custom React and MERN websites, landing pages and business websites with clear project planning.',
-    primaryKeyword: 'Website Development Company',
     secondaryKeywords: ['Business Website Development', 'Custom Website Development Services', 'Professional Website Design Services', 'Affordable Website Development', 'React Website Development', 'MERN Stack Development', 'Landing Page Development', 'Website Developer'],
     eyebrow: 'Fast, responsive web experiences for your business',
     description:

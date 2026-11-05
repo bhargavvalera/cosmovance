@@ -51,10 +51,10 @@ const pageSEO = {
       'Cosmovance Technologies is a software development company delivering custom software, web applications, mobile apps, eCommerce solutions and AI-powered digital products for businesses.',
   },
 
-'/services': {
-  title: 'Software Development Services | Cosmovance Technologies',
-  description:
-    'Explore software development services by Cosmovance Technologies, including custom software, web applications, mobile app development, eCommerce solutions and AI-powered solutions.',
+  '/services': {
+    title: 'Software Development Services | Cosmovance Technologies',
+    description:
+      'Explore software development services by Cosmovance Technologies, including custom software, web applications, mobile app development, eCommerce solutions and AI-powered solutions.',
   },
 
   '/process': {
@@ -76,9 +76,9 @@ const pageSEO = {
   },
 
   '/contact': {
-    title: 'Hire Website Developers | Contact Cosmovance Technologies',
+    title: 'Hire Software Developers | Contact Cosmovance Technologies',
     description:
-      'Looking to build a website, mobile app or custom software? Contact Cosmovance Technologies to discuss your project and development requirements.',
+      'Looking to build custom software, web applications, mobile apps or AI-powered solutions? Contact Cosmovance Technologies to discuss your project and development requirements.',
   },
 };
 
